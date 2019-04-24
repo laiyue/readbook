@@ -4,6 +4,8 @@ import HelloWorld from '@/components/HelloWorld'
 import Home from '@/views/home'
 import login from '@/views/login'
 import BookList from '@/components/BookList'
+import NavBar from '@/components/NavBar'
+import PersonalCenter from '@/views/PersonalCenter'
 
 Vue.use(Router)
 
@@ -13,7 +15,7 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
-    },  
+    },
     {
       path: '/Home',
       name: 'Home',
@@ -30,6 +32,8 @@ export default new Router({
       name: 'BookList',
       component: BookList
     },
-    { path: "/SerializationList", name: "SerializationList", component: () => import("@/components/SerializationList") }
+    { path: "/SerializationList", name: "SerializationList", component: () => import("@/components/SerializationList") },
+    { path: "/navBar", name: "NavBar", component: NavBar },
+    {path:"/PersonalCenter",name:"PersonalCenter",component:PersonalCenter}
   ]
 })

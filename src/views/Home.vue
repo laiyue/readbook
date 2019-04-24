@@ -2,17 +2,11 @@
   <div class="app-home">
     <div class="mui-input-row mui-search">
       <h4 class="search-title">原创</h4>
-      <input type="search" class placeholder>
+      <input type="text" class placeholder>
       <span class="mui-icon mui-icon-bars"></span>
       <span class="mui-icon mui-icon-search"></span>
     </div>
-    <mt-navbar>
-      <mt-tab-item id="1">精选</mt-tab-item>
-      <mt-tab-item id="2">悬疑</mt-tab-item>
-      <mt-tab-item id="3">女性</mt-tab-item>
-      <mt-tab-item id="4">幻想</mt-tab-item>
-      <mt-tab-item id="5">文艺</mt-tab-item>
-    </mt-navbar>
+    <nav-bar></nav-bar>
     <mt-swipe class="mint-swipe" :auto="4000" :show-indicators="true">
       <mt-swipe-item>
         <img src="../assets/images/7410.jpg" alt>
@@ -25,7 +19,7 @@
       </mt-swipe-item>
     </mt-swipe>
     <div class="mui-table-view message">
-      <p class="font8">
+      <p class="font12">
         <span>新</span>2019年3月影视行业推荐月报发布
       </p>
     </div>
@@ -59,41 +53,26 @@
         </li>
       </ul>
     </div>
-
     <book-list></book-list>
-    <nav class="mui-bar mui-bar-tab">
-      <a class="mui-tab-item mui-active" href="#tabbar">
-        <span class="mui-icon mui-icon-home"></span>
-        <span class="mui-tab-label">首页</span>
-      </a>
-      <a class="mui-tab-item" href="#tabbar-with-chat">
-        <span class="mui-icon mui-icon-email">
-          <span class="mui-badge">9</span>
-        </span>
-        <span class="mui-tab-label">消息</span>
-      </a>
-      <a class="mui-tab-item" href="#tabbar-with-contact">
-        <span class="mui-icon mui-icon-contact"></span>
-        <span class="mui-tab-label">通讯录</span>
-      </a>
-      <a class="mui-tab-item" href="#tabbar-with-map">
-        <span class="mui-icon mui-icon-gear"></span>
-        <span class="mui-tab-label">设置</span>
-      </a>
-    </nav>
+    <serialization-list></serialization-list>
+   
   </div>
 </template>
 
 <script>
 import bookList from "../components/BookList.vue";
+
+import serializationList from "../components/SerializationList.vue";
 export default {
   data() {
     return {
       value: ""
-    }
+    };
   },
   components: {
-    bookList
+    bookList,
+    navBar,
+    serializationList
   }
 };
 </script>
@@ -113,10 +92,14 @@ a {
   background-color: #ebf0f3;
   /* font-family:"汉仪旗黑"; */
 }
-.app-home .mint-navbar.mint-tab-item-label {
-  font-size: 18px;
-  color: #ddd;
-}
+
+.mui-table-view:before{
+  height: 0;
+} 
+
+.mui-table-view:after{
+  height: 0;
+} 
 .app-home .mint-swipe {
   height: 100px;
 }
@@ -129,8 +112,10 @@ a {
   justify-content: center;
   flex-wrap: nowrap;
 }
-.app-home .mui-search input[type="search"] {
+.app-home .mui-search input[type="text"] {
   background-color: #fff;
+  height: 30px;
+  border: none;
 }
 .app-home .mui-search .search-title {
   width: 20%;
@@ -144,8 +129,8 @@ a {
   justify-content: flex-start;
   /* border-bottom: 1px solid #bbb; */
 }
-.app-home .font8 {
-  font-size: 8px;
+.app-home .font12 {
+  font-size: 12px;
 }
 .app-home .font16 {
   font-size: 18px;
@@ -163,19 +148,6 @@ a {
   border: none;
   margin-right: 5px;
 }
-
-/* .app-home .mui-table-view-cell_ {
-  width: 95px;
-  height: 40px;
-  margin: 3px;
-  display: inline-block;
-  border: 1px solid #ddd;
-}
-.app-home .mui-media-body {
-  background-color: #fff;
-  width: 100%;
-  height: 100%;
-} */
 
 .app-home .card-content {
   padding: 15px;
