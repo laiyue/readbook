@@ -1,18 +1,16 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
+    <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>-->
-    <router-view/>
-    <nav class="mui-bar mui-bar-tab">
+    </div>
+     <nav class="mui-bar mui-bar-tab">
       <a class="mui-tab-item mui-active" href="#tabbar">
         <span class="mui-icon mui-icon-extra mui-icon-extra-lamp"></span>
         <span class="mui-tab-label">原创</span>
       </a>
       <a class="mui-tab-item" href="#tabbar-with-chat">
-        <span class="mui-icon mui-icon-extra mui-icon-extra-share">
-        </span>
+        <span class="mui-icon mui-icon-extra mui-icon-extra-share"></span>
         <span class="mui-tab-label">动态</span>
       </a>
       <a class="mui-tab-item" href="#tabbar-with-contact">
@@ -28,6 +26,8 @@
         <span class="mui-tab-label">本地</span>
       </a>
     </nav>
+    <router-view/>
+   
   </div>
 </template>
 
@@ -75,6 +75,11 @@ import navBar from "./components/NavBar.vue";
 export default {
   data() {
     return {};
+  },
+  methods:{
+goto(){
+  this.router.push('apple');
+}
   },
   components: {
     navBar

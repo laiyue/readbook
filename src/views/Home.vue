@@ -61,7 +61,7 @@
 
 <script>
 import bookList from "../components/BookList.vue";
-
+import navBar from "../components/NavBar.vue"
 import serializationList from "../components/SerializationList.vue";
 export default {
   data() {
