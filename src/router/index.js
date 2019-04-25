@@ -6,6 +6,7 @@ import login from '@/views/login'
 import BookList from '@/components/BookList'
 import NavBar from '@/components/NavBar'
 import PersonalCenter from '@/views/PersonalCenter'
+import Shop from '@/views/Shop'
 
 Vue.use(Router)
 
@@ -34,6 +35,7 @@ export default new Router({
     },
     { path: "/SerializationList", name: "SerializationList", component: () => import("@/components/SerializationList") },
     { path: "/navBar", name: "NavBar", component: NavBar },
-    {path:"/PersonalCenter",name:"PersonalCenter",component:PersonalCenter}
+    {path:"/PersonalCenter",name:"PersonalCenter",component:PersonalCenter},
+    {path:"/Shop",name:"Shop",component:Shop}
   ]
 })

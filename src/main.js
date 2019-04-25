@@ -28,8 +28,9 @@ import MintUI from "mint-ui";
 Vue.use(MintUI);
 /*eslint-disable no-new */
 new Vue({
-  el: '#app',
+  // el: '#app',
+  mode: 'history',
   router,
   components: { App },
   template: '<App/>'
-})
+}).$mount("#app");

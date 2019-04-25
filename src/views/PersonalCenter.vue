@@ -1,10 +1,12 @@
 <template>
   <div class="app-personal-center">
     <header class="mui-bar mui-bar-nav">
-      <h1 class="mui-title">我的
-          <span class="mui-icon mui-icon-extra mui-icon-extra-cart ">
-              <span class="mui-badge">5</span></span>
-              </h1>
+      <h1 class="mui-title">
+        我的
+        <span class="mui-icon mui-icon-extra mui-icon-extra-cart">
+          <span class="mui-badge">5</span>
+        </span>
+      </h1>
     </header>
     <div class="mui-content">
       <ul class="mui-table-view">
@@ -17,7 +19,8 @@
       <ul class="mui-table-view">
         <li class="mui-table-view-cell">
           <a>
-            <span class="mui-icon-extra mui-icon-extra-rank"></span> 阅读时长
+            <span class="mui-icon-extra mui-icon-extra-rank"></span>
+            阅读时长
           </a>
         </li>
       </ul>
@@ -42,25 +45,29 @@
         </li>
         <li class="mui-table-view-cell">
           <a>
-            <span class="mui-icon-extra mui-icon-extra-peoples"></span>关注的作者
+            <span class="mui-icon-extra mui-icon-extra-peoples"></span>
+            关注的作者
           </a>
         </li>
         <li class="mui-table-view-cell">
           <a>
-            <span class="mui-icon-extra mui-icon-extra-university"></span>阅读评委
+            <span class="mui-icon-extra mui-icon-extra-university"></span>
+            阅读评委
           </a>
         </li>
       </ul>
       <ul class="mui-table-view">
         <li class="mui-table-view-cell">
           <a>
-            <span class="mui-icon-extra mui-icon-extra-prech"></span>余额
+            <span class="mui-icon-extra mui-icon-extra-prech"></span>
+            余额
           </a>
           <span class="mui-badge mui-badge-right">￥0.00</span>
         </li>
         <li class="mui-table-view-cell">
           <a>
-            <span class="mui-icon-extra mui-icon-extra-find"></span>推荐票
+            <span class="mui-icon-extra mui-icon-extra-find"></span>
+            推荐票
           </a>
         </li>
         <li class="mui-table-view-cell">
@@ -79,18 +86,23 @@
       <ul class="mui-table-view">
         <li class="mui-table-view-cell">
           <a>
-            <span class="mui-icon-extra mui-icon-extra-topic"></span>阅读报告
+            <span class="mui-icon-extra mui-icon-extra-topic"></span>
+            阅读报告
           </a>
         </li>
       </ul>
       <ul class="mui-table-view">
         <li class="mui-table-view-cell">
           <a>
-            <span class="mui-icon-extra mui-icon-extra-custom"></span>帮助中心
+            <span class="mui-icon-extra mui-icon-extra-custom"></span>
+            帮助中心
           </a>
         </li>
         <li class="mui-table-view-cell">
-          <a id="icon-gear"><span class="mui-icon mui-icon-gear"></span>设置</a>
+          <a id="icon-gear">
+            <span class="mui-icon mui-icon-gear"></span>
+            设置
+          </a>
         </li>
       </ul>
     </div>
@@ -109,29 +121,28 @@
 .app-personal-center .mui-table-view:after {
   height: 0;
 }
- .app-personal-center .mui-bar .mui-title {
+.app-personal-center .mui-bar .mui-title {
   text-align: left;
   left: 10px;
   width: 100%;
 }
-.mui-title .mui-badge{
-    background: #42b983;
-    font-size: 9px;
-    padding: 0px 4px;
+.mui-title .mui-badge {
+  background: #42b983;
+  font-size: 9px;
+  padding: 0px 4px;
 }
 
-
-.app-personal-center .mui-bar .mui-title .mui-icon-extra-cart{
-   margin-left:75%; 
+.app-personal-center .mui-bar .mui-title .mui-icon-extra-cart {
+  margin-left: 75%;
 }
- .app-personal-center .mui-badge-right {
-    /* font-size: 12px; */
-    line-height: 1;
-    display: inline-block;
-    padding: 0;
-    color: #333;
-    border-radius: 0;
-    background:none;
+.app-personal-center .mui-badge-right {
+  /* font-size: 12px; */
+  line-height: 1;
+  display: inline-block;
+  padding: 0;
+  color: #333;
+  border-radius: 0;
+  background: none;
 }
 </style>
 <script>
