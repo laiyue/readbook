@@ -24,6 +24,9 @@
 * {
   touch-action: pan-y;
 }
+.app-navbar{
+  background: #fff;
+}
 </style>
 <script>
 export default {

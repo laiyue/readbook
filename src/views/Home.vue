@@ -1,11 +1,6 @@
 <template>
   <div class="app-home">
-    <div class="mui-input-row mui-search">
-      <h4 class="search-title">原创</h4>
-      <input type="text" class placeholder>
-      <span class="mui-icon mui-icon-bars"></span>
-      <span class="mui-icon mui-icon-search"></span>
-    </div>
+    <search-top title="原创"></search-top>
     <nav-bar></nav-bar>
     <mt-swipe class="mint-swipe" :auto="4000" :show-indicators="true">
       <mt-swipe-item>
@@ -55,14 +50,15 @@
     </div>
     <book-list></book-list>
     <serialization-list></serialization-list>
-   
   </div>
 </template>
 
 <script>
 import bookList from "../components/BookList.vue";
-import navBar from "../components/NavBar.vue"
+import navBar from "../components/NavBar.vue";
 import serializationList from "../components/SerializationList.vue";
+import shop from "../views/Shop.vue";
+import searchTop from "../components/Search.vue";
 export default {
   data() {
     return {
@@ -72,7 +68,9 @@ export default {
   components: {
     bookList,
     navBar,
-    serializationList
+    serializationList,
+    shop,
+    searchTop
   }
 };
 </script>
@@ -93,13 +91,14 @@ a {
   /* font-family:"汉仪旗黑"; */
 }
 
-.mui-table-view:before{
+.app-home .mui-table-view:before {
   height: 0;
-} 
+  top: 0;
+}
 
-.mui-table-view:after{
+.app-home .mui-table-view:after {
   height: 0;
-} 
+}
 .app-home .mint-swipe {
   height: 100px;
 }
@@ -107,22 +106,7 @@ a {
   width: 100%;
   height: 100%;
 }
-.app-home .mui-search {
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
-}
-.app-home .mui-search input[type="text"] {
-  background-color: #fff;
-  height: 30px;
-  border: none;
-}
-.app-home .mui-search .search-title {
-  width: 20%;
-  display: inline-block;
-  line-height: 34px;
-  color: black;
-}
+
 .app-home .message {
   padding: 10px 10px 10px 20px;
   display: flex;

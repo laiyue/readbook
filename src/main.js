@@ -3,8 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
-
 import './registerServiceWorker'
 import 'mint-ui/lib/style.css'
 import axios from "axios"
@@ -29,7 +27,7 @@ Vue.use(MintUI);
 /*eslint-disable no-new */
 new Vue({
   // el: '#app',
-  mode: 'history',
+  // mode: 'history',
   router,
   components: { App },
   template: '<App/>'

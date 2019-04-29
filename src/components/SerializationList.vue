@@ -1,6 +1,138 @@
 <template>
   <div class="app-Serialization-list">
-    <mt-swipe class="mint-swipe" :auto="0" :show-indicators="true">
+    <mt-swipe class="mint-swipe" :auto="0">
+      <mt-swipe-item>
+        <div class="swipe-ser-list">
+          <div class="swipe-ser-item">
+            <img src="../assets/images/003_2.png">
+            <div class="ser-item-right">
+              <div class="right-clo">
+                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
+                <p class="font12">青溪客</p>
+              </div>
+              <div class="right-clo-star">
+                <!-- <a id="icon-star"> -->
+                <span class="mui-icon mui-icon-star colorRed">
+                  <span class="font14">8.4</span>
+                </span>
+                <!-- </a> -->
+                <!-- <p>8.4</p> -->
+              </div>
+            </div>
+          </div>
+          <div class="swipe-ser-item">
+            <img src="../assets/images/003_2.png">
+            <div class="ser-item-right">
+              <div class="right-clo">
+                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
+                <p class="font12">青溪客</p>
+              </div>
+              <div class="right-clo-star">
+                <!-- <a id="icon-star"> -->
+                <span class="mui-icon mui-icon-star colorRed">
+                  <span class="font14">8.4</span>
+                </span>
+                <!-- </a> -->
+                <!-- <p>8.4</p> -->
+              </div>
+            </div>
+          </div>
+          <div class="swipe-ser-item">
+            <img src="../assets/images/003_2.png">
+            <div class="ser-item-right">
+              <div class="right-clo">
+                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
+                <p class="font12">青溪客</p>
+              </div>
+              <div class="right-clo-star">
+                <!-- <a id="icon-star"> -->
+                <span class="mui-icon mui-icon-star colorRed">
+                  <span class="font14">8.4</span>
+                </span>
+                <!-- </a> -->
+                <!-- <p>8.4</p> -->
+              </div>
+            </div>
+          </div>
+          <div class="swipe-ser-item">
+            <img src="../assets/images/003_2.png">
+            <div class="ser-item-right">
+              <div class="right-clo">
+                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
+                <p class="font12">青溪客</p>
+              </div>
+              <div class="right-clo-star">
+                <!-- <a id="icon-star"> -->
+                <span class="mui-icon mui-icon-star colorRed">
+                  <span class="font14">8.4</span>
+                </span>
+                <!-- </a> -->
+                <!-- <p>8.4</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </mt-swipe-item>
+      <!-- <mt-swipe-item>
+        <ul class="swipe-ser-list">
+          <li class="swipe-ser-item">
+            <img src="../assets/images/003_2.png">
+            <div class="ser-item-right">
+              <div class="right-clo">
+                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
+                <p class="font12">青溪客</p>
+              </div>
+              <div class="right-clo-star">
+                <span class="mui-icon mui-icon-star colorRed">
+                  <span class="font14">8.4</span>
+                </span>
+              </div>
+            </div>
+          </li>
+          <li class="swipe-ser-item">
+            <img src="../assets/images/003_2.png">
+            <div class="ser-item-right">
+              <div class="right-clo">
+                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
+                <p class="font12">青溪客</p>
+              </div>
+              <div class="right-clo-star">
+                <span class="mui-icon mui-icon-star colorRed">
+                  <span class="font14">8.4</span>
+                </span>
+              </div>
+            </div>
+          </li>
+          <li class="swipe-ser-item">
+            <img src="../assets/images/003_2.png">
+            <div class="ser-item-right">
+              <div class="right-clo">
+                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
+                <p class="font12">青溪客</p>
+              </div>
+              <div class="right-clo-star">
+                <span class="mui-icon mui-icon-star colorRed">
+                  <span class="font14">8.4</span>
+                </span>
+              </div>
+            </div>
+          </li>
+          <li class="swipe-ser-item">
+            <img src="../assets/images/003_2.png">
+            <div class="ser-item-right">
+              <div class="right-clo">
+                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
+                <p class="font12">青溪客</p>
+              </div>
+              <div class="right-clo-star">
+                <span class="mui-icon mui-icon-star colorRed">
+                  <span class="font14">8.4</span>
+                </span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </mt-swipe-item>
       <mt-swipe-item>
         <ul class="swipe-ser-list">
           <li class="swipe-ser-item">
@@ -11,62 +143,12 @@
                 <p class="font12">青溪客</p>
               </div>
               <div class="right-clo-star">
-                <!-- <a id="icon-star"> -->
-                  <span class="mui-icon mui-icon-star colorRed"> <span class="font14">8.4</span> </span>
-                <!-- </a> -->
-                <!-- <p>8.4</p> -->
+                <span class="mui-icon mui-icon-star colorRed">
+                  <span class="font14">8.4</span>
+                </span>
               </div>
             </div>
           </li>
-           <li class="swipe-ser-item">
-            <img src="../assets/images/003_2.png">
-            <div class="ser-item-right">
-              <div class="right-clo">
-                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
-                <p class="font12">青溪客</p>
-              </div>
-              <div class="right-clo-star">
-                <!-- <a id="icon-star"> -->
-                  <span class="mui-icon mui-icon-star colorRed"> <span class="font14">8.4</span> </span>
-                <!-- </a> -->
-                <!-- <p>8.4</p> -->
-              </div>
-            </div>
-          </li>
-           <li class="swipe-ser-item">
-            <img src="../assets/images/003_2.png">
-            <div class="ser-item-right">
-              <div class="right-clo">
-                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
-                <p class="font12">青溪客</p>
-              </div>
-              <div class="right-clo-star">
-                <!-- <a id="icon-star"> -->
-                  <span class="mui-icon mui-icon-star colorRed"> <span class="font14">8.4</span> </span>
-                <!-- </a> -->
-                <!-- <p>8.4</p> -->
-              </div>
-            </div>
-          </li>
-           <li class="swipe-ser-item">
-            <img src="../assets/images/003_2.png">
-            <div class="ser-item-right">
-              <div class="right-clo">
-                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
-                <p class="font12">青溪客</p>
-              </div>
-              <div class="right-clo-star">
-                <!-- <a id="icon-star"> -->
-                  <span class="mui-icon mui-icon-star colorRed"> <span class="font14">8.4</span> </span>
-                <!-- </a> -->
-                <!-- <p>8.4</p> -->
-              </div>
-            </div>
-          </li>
-        </ul>
-      </mt-swipe-item>
-      <mt-swipe-item>
-         <ul class="swipe-ser-list">
           <li class="swipe-ser-item">
             <img src="../assets/images/003_2.png">
             <div class="ser-item-right">
@@ -75,62 +157,12 @@
                 <p class="font12">青溪客</p>
               </div>
               <div class="right-clo-star">
-                <!-- <a id="icon-star"> -->
-                  <span class="mui-icon mui-icon-star colorRed"> <span class="font14">8.4</span> </span>
-                <!-- </a> -->
-                <!-- <p>8.4</p> -->
+                <span class="mui-icon mui-icon-star colorRed">
+                  <span class="font14">8.4</span>
+                </span>
               </div>
             </div>
           </li>
-           <li class="swipe-ser-item">
-            <img src="../assets/images/003_2.png">
-            <div class="ser-item-right">
-              <div class="right-clo">
-                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
-                <p class="font12">青溪客</p>
-              </div>
-              <div class="right-clo-star">
-                <!-- <a id="icon-star"> -->
-                  <span class="mui-icon mui-icon-star colorRed"> <span class="font14">8.4</span> </span>
-                <!-- </a> -->
-                <!-- <p>8.4</p> -->
-              </div>
-            </div>
-          </li>
-           <li class="swipe-ser-item">
-            <img src="../assets/images/003_2.png">
-            <div class="ser-item-right">
-              <div class="right-clo">
-                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
-                <p class="font12">青溪客</p>
-              </div>
-              <div class="right-clo-star">
-                <!-- <a id="icon-star"> -->
-                  <span class="mui-icon mui-icon-star colorRed"> <span class="font14">8.4</span> </span>
-                <!-- </a> -->
-                <!-- <p>8.4</p> -->
-              </div>
-            </div>
-          </li>
-           <li class="swipe-ser-item">
-            <img src="../assets/images/003_2.png">
-            <div class="ser-item-right">
-              <div class="right-clo">
-                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
-                <p class="font12">青溪客</p>
-              </div>
-              <div class="right-clo-star">
-                <!-- <a id="icon-star"> -->
-                  <span class="mui-icon mui-icon-star colorRed"> <span class="font14">8.4</span> </span>
-                <!-- </a> -->
-                <!-- <p>8.4</p> -->
-              </div>
-            </div>
-          </li>
-        </ul>
-      </mt-swipe-item>
-      <mt-swipe-item>
- <ul class="swipe-ser-list">
           <li class="swipe-ser-item">
             <img src="../assets/images/003_2.png">
             <div class="ser-item-right">
@@ -139,14 +171,13 @@
                 <p class="font12">青溪客</p>
               </div>
               <div class="right-clo-star">
-                <!-- <a id="icon-star"> -->
-                  <span class="mui-icon mui-icon-star colorRed"> <span class="font14">8.4</span> </span>
-                <!-- </a> -->
-                <!-- <p>8.4</p> -->
+                <span class="mui-icon mui-icon-star colorRed">
+                  <span class="font14">8.4</span>
+                </span>
               </div>
             </div>
           </li>
-           <li class="swipe-ser-item">
+          <li class="swipe-ser-item">
             <img src="../assets/images/003_2.png">
             <div class="ser-item-right">
               <div class="right-clo">
@@ -154,46 +185,14 @@
                 <p class="font12">青溪客</p>
               </div>
               <div class="right-clo-star">
-                <!-- <a id="icon-star"> -->
-                  <span class="mui-icon mui-icon-star colorRed"> <span class="font14">8.4</span> </span>
-                <!-- </a> -->
-                <!-- <p>8.4</p> -->
-              </div>
-            </div>
-          </li>
-           <li class="swipe-ser-item">
-            <img src="../assets/images/003_2.png">
-            <div class="ser-item-right">
-              <div class="right-clo">
-                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
-                <p class="font12">青溪客</p>
-              </div>
-              <div class="right-clo-star">
-                <!-- <a id="icon-star"> -->
-                  <span class="mui-icon mui-icon-star colorRed"> <span class="font14">8.4</span> </span>
-                <!-- </a> -->
-                <!-- <p>8.4</p> -->
-              </div>
-            </div>
-          </li>
-           <li class="swipe-ser-item">
-            <img src="../assets/images/003_2.png">
-            <div class="ser-item-right">
-              <div class="right-clo">
-                <p class="font14 fontcolorblack">山青卷白云：女翻译与王维</p>
-                <p class="font12">青溪客</p>
-              </div>
-              <div class="right-clo-star">
-                <!-- <a id="icon-star"> -->
-                  <span class="mui-icon mui-icon-star colorRed"> <span class="font14">8.4</span> </span>
-                <!-- </a> -->
-                <!-- <p>8.4</p> -->
+                <span class="mui-icon mui-icon-star colorRed">
+                  <span class="font14">8.4</span>
+                </span>
               </div>
             </div>
           </li>
         </ul>
-
-      </mt-swipe-item>
+      </mt-swipe-item>-->
     </mt-swipe>
   </div>
 </template>
@@ -202,31 +201,43 @@
   height: 330px;
   background-color: #fff;
   margin: 10px auto;
-
 }
+
 .app-Serialization-list .mint-swipe {
   height: 100%;
 }
-.swipe-ser-list {
-  width: 100%;
-  padding: 10px;
+.app-Serialization-list .mint-swipe-item,
+.app-Serialization-list.is-active {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
 }
-.swipe-ser-list li {
-  margin: 5px;
+/* swipe-ser-list swipe-ser-item */
+.mint-swipe-item .swipe-ser-list {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 20px;
+}
+.mint-swipe-item .swipe-ser-list .swipe-ser-item {
+  display: inline-block;
+  width: 100%;
   height: 50px;
-  width: 100% !important;
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  border-bottom:1px solid #ddd; 
+  border-bottom: 1px solid #ddd;
+  margin: 10px 0;
 }
+
 .right-clo {
   height: auto;
   display: flex;
   flex-direction: column;
   flex: 3.5;
+  padding-left: 10px;
 }
-.swipe-ser-list li > img {
+.swipe-ser-list .swipe-ser-item > img {
   height: 40px;
   width: 9%;
 }
@@ -237,8 +248,6 @@
   justify-content: flex-start;
   flex-direction: row;
   margin: 5px;
-  padding-left:10px; 
-  /* padding: 5px 5px 5px 0px; */
 }
 .ser-item-right p {
   text-align: left;
@@ -250,21 +259,14 @@
 .font12 {
   font-size: 12px;
 }
-.fontcolorblack{
+.fontcolorblack {
   color: #000;
 }
 .colorRed {
   color: red;
 }
-.right-clo-star {
-  flex: 0.5;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 .right-clo-star .mui-icon {
   font-size: 16px;
-  margin-top:-20px; 
 }
 </style>
 

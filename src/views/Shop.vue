@@ -1,41 +1,6 @@
 <template>
   <div class="app-shop">
-    <div class="mui-slider">
-      <div class="mui-slider-group mui-slider-loop">
-        <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一个图文表格) -->
-        <div class="mui-slider-item mui-slider-item-duplicate">
-          <ul class="mui-table-view mui-grid-view">
-            <li class="mui-table-view-cell mui-media mui-col-xs-4">
-              <a href="#">
-                <img class="mui-media-object" src="../assets/images/003_115.png">
-                <div class="mui-media-body">
-                  <p>静静看这世界</p>
-                  <p>作者</p>
-                </div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4">
-              <a href="#">
-                <img class="mui-media-object" src="../assets/images/003_116.png">
-                <div class="mui-media-body">
-                  <p>静静看这世界</p>
-                  <p>作者</p>
-                </div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4">
-              <a href="#">
-                <img class="mui-media-object" src="../assets/images/003_117.png">
-                <div class="mui-media-body">
-                  <p>静静看这世界</p>
-                  <p>作者</p>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <search-top title="书店"></search-top>
   </div>
 </template>
 <style>
@@ -43,14 +8,23 @@
   width: 74px;
   height: 104px;
 }
+.app-shop .mui-table-view li {
+  width: 33.33333%;
+}
+.app-shop .mui-table-view li a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
 </style>
 <script>
+import searchTop from "../components/Search.vue";
 export default {
   data() {
     return {};
   },
-  mounted() {
-    mui.init();
+  components: {
+    searchTop
   }
 };
 </script>
