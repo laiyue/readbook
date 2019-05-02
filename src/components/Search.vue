@@ -25,6 +25,10 @@
   display: inline-block;
   line-height: 34px;
   color: black;
+  margin: 1rem;
+}
+.component-search .mui-search .mui-icon {
+  margin: 1rem;
 }
 </style>
 <script>

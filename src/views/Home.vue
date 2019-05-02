@@ -49,14 +49,14 @@
       </ul>
     </div>
     <book-list></book-list>
-    <serialization-list></serialization-list>
+    <!-- <serialization-list></serialization-list> -->
   </div>
 </template>
 
 <script>
 import bookList from "../components/BookList.vue";
 import navBar from "../components/NavBar.vue";
-import serializationList from "../components/SerializationList.vue";
+//import serializationList from "../components/SerializationList.vue";
 import shop from "../views/Shop.vue";
 import searchTop from "../components/Search.vue";
 export default {
@@ -68,7 +68,7 @@ export default {
   components: {
     bookList,
     navBar,
-    serializationList,
+    //serializationList,
     shop,
     searchTop
   }

@@ -11,15 +11,17 @@
           <a class="mui-control-item" href="#item5mobile" data-wid="tab-top-subpage-5.html">幻想</a>
           <a class="mui-control-item" href="#item5mobile" data-wid="tab-top-subpage-5.html">文艺</a>
           <a class="mui-control-item" href="#item5mobile" data-wid="tab-top-subpage-5.html">历史</a>
-          
         </div>
       </div>
     </div>
   </div>
 </template>
 <style>
+.app-navbar{
+  padding: 0 0.5rem;
+}
 .app-navbar .mui-scroll-wrapper .mui-control-item {
-  padding: 0 15px;
+  width:5.5rem;
 }
 * {
   touch-action: pan-y;
@@ -34,6 +36,7 @@ export default {
     return {};
   },
   mounted() {
+    mui.init();
     mui(".mui-scroll-wrapper").scroll({
       deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
     });

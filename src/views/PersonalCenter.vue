@@ -112,6 +112,9 @@
 .app-personal-center .mui-table-view-cell {
   text-align: left;
 }
+.app-personal-center .mui-icon-extra{
+  font-size: 18px;
+}
 .app-personal-center .mui-table-view {
   margin: 15px 0px;
 }
