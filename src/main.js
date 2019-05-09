@@ -27,7 +27,7 @@ Vue.use(MintUI);
 /*eslint-disable no-new */
 new Vue({
   // el: '#app',
-  // mode: 'history',
+   mode: 'history',
   router,
   components: { App },
   template: '<App/>'

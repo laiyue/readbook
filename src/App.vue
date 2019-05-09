@@ -1,33 +1,8 @@
 <template>
   <div id="app">
-    <nav class="mui-bar mui-bar-tab">
-      <router-link class="mui-tab-item mui-active" to="/home">
-        <span class="mui-icon mui-icon-extra mui-icon-extra-lamp"></span>
-        <span class="mui-tab-label">原创</span>
-      </router-link>
-      <router-link class="mui-tab-item" to="/home">
-        <span class="mui-icon mui-icon-extra mui-icon-extra-share"></span>
-        <span class="mui-tab-label">动态</span>
-      </router-link>
-        <router-link to="/shop" class="mui-tab-item">
-           <span class="mui-icon mui-icon-home"></span>
-           <span class="mui-tab-label">书店</span>
-          </router-link>
-       
-      <router-link to="/PersonalCenter" class="mui-tab-item">
-        <span class="mui-icon mui-icon-contact"></span>
-        <span class="mui-tab-label">我的</span>
-      </router-link>
-
-        <router-link to="/PersonalCenter" class="mui-tab-item">
-        <span class="mui-icon mui-icon-gear"></span>
-        <span class="mui-tab-label">本地</span>
-      </router-link>
-    </nav>
     <router-view/>
   </div>
 </template>
-
 <style>
 html,
 body {
@@ -69,14 +44,27 @@ a {
 </style>
 <script>
 import navBar from "./components/NavBar.vue";
+// import homeView from "./views/Home.vue";
+// import personalCenter from "./views/PersonalCenter.vue";
+// import shopView from "./views/Shop.vue";
 export default {
   data() {
-    return {};
+    return {
+      url: ""
+    };
   },
-  methods: {
-    goto() {
-      this.router.push("apple");
-    }
+  created() {
+    mui.init({
+      swipeBack: true //启用右滑关闭功能
+    });
+  },
+  mounted() {
+    mui.init();
+    mui(".mui-scroll-wrapper")
+      .scroll({
+        deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+      });
+     
   },
   components: {
     navBar

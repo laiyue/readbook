@@ -38,75 +38,45 @@
         <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一个图文表格) -->
         <div class="mui-slider-item mui-slider-item-duplicate">
           <ul class="mui-table-view mui-grid-view">
-            <li class="mui-table-view-cell mui-media mui-col-xs-">
+            <li
+              class="mui-table-view-cell mui-media mui-col-xs-6"
+              v-for="(item,i) of booklist"
+              :key="i"
+            >
               <a href="#">
-                <img class="mui-media-object" src="../assets/images/7411.jpg">
-                <div class="mui-media-body">Color of SIP CBD</div>
-                <div class="mui-media-body">Color of SIP CBD</div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-              <a href="#">
-                <img class="mui-media-object" src="../assets/images/7463.jpg">
-                <div class="mui-media-body">静静看这世界</div>
-                <div class="mui-media-body">静静看这世界</div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-              <a href="#">
-                <img class="mui-media-object" src="../assets/images/7463.jpg">
-                <div class="mui-media-body">静静看这世界</div>
-                <div class="mui-media-body">静静看这世界</div>
+                <img class="mui-media-object" :src="item.img_url">
+                <div class="mui-media-body">{{item.book_title}}</div>
+                <div class="mui-media-body">作者:{{item.book_author_names}}</div>
               </a>
             </li>
           </ul>
         </div>
         <div class="mui-slider-item">
           <ul class="mui-table-view mui-grid-view">
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+            <li
+              class="mui-table-view-cell mui-media mui-col-xs-6"
+              v-for="(item,i) of booklist"
+              :key="i"
+            >
               <a href="#">
-                <img class="mui-media-object" src="../assets/images/7411.jpg">
-                <div class="mui-media-body">幸福就是可以一起睡觉</div>
-                <div class="mui-media-body">幸福就是可以一起睡觉</div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-              <a href="#">
-                <img class="mui-media-object" src="../assets/images/7463.jpg">
-                <div class="mui-media-body">想要一间这样的木屋，静静的喝咖啡</div>
-                <div class="mui-media-body">想要一间这样的木屋，静静的喝咖啡</div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-              <a href="#">
-                <img class="mui-media-object" src="../assets/images/7463.jpg">
-                <div class="mui-media-body">静静看这世界</div>
-                <div class="mui-media-body">静静看这世界</div>
+                <img class="mui-media-object" :src="item.img_url">
+                <div class="mui-media-body">{{item.book_title}}</div>
+                <div class="mui-media-body">作者:{{item.book_author_names}}</div>
               </a>
             </li>
           </ul>
         </div>
         <div class="mui-slider-item">
           <ul class="mui-table-view mui-grid-view">
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+            <li
+              class="mui-table-view-cell mui-media mui-col-xs-6"
+              v-for="(item,i) of booklist2"
+              :key="i"
+            >
               <a href="#">
-                <img class="mui-media-object" src="../assets/images/7411.jpg">
-                <div class="mui-media-body">Color of SIP CBD</div>
-                <div class="mui-media-body">Color of SIP CBD</div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-              <a href="#">
-                <img class="mui-media-object" src="../assets/images/7463.jpg">
-                <div class="mui-media-body">静静看这世界</div>
-                <div class="mui-media-body">静静看这世界</div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-              <a href="#">
-                <img class="mui-media-object" src="../assets/images/7463.jpg">
-                <div class="mui-media-body">静静看这世界</div>
-                <div class="mui-media-body">静静看这世界</div>
+                <img class="mui-media-object" :src="item.img_url">
+                <div class="mui-media-body">{{item.book_title}}</div>
+                <div class="mui-media-body">作者:{{item.book_author_names}}</div>
               </a>
             </li>
           </ul>
@@ -114,25 +84,15 @@
         <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一个图文表格) -->
         <div class="mui-slider-item mui-slider-item-duplicate">
           <ul class="mui-table-view mui-grid-view">
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+            <li
+              class="mui-table-view-cell mui-media mui-col-xs-6"
+              v-for="(item,i) of booklist2"
+              :key="i"
+            >
               <a href="#">
-                <img class="mui-media-object" src="../assets/images/7411.jpg">
-                <div class="mui-media-body">幸福就是可以一起睡觉</div>
-                <div class="mui-media-body">幸福就是可以一起睡觉</div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-              <a href="#">
-                <img class="mui-media-object" src="../assets/images/7463.jpg">
-                <div class="mui-media-body">想要一间这样的木屋，静静的喝咖啡</div>
-                <div class="mui-media-body">想要一间这样的木屋，静静的喝咖啡</div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-              <a href="#">
-                <img class="mui-media-object" src="../assets/images/7463.jpg">
-                <div class="mui-media-body">想要一间这样的木屋，静静的喝咖啡</div>
-                <div class="mui-media-body">想要一间这样的木屋，静静的喝咖啡</div>
+                <img class="mui-media-object" :src="item.img_url">
+                <div class="mui-media-body">{{item.book_title}}</div>
+                <div class="mui-media-body">作者:{{item.book_author_names}}</div>
               </a>
             </li>
           </ul>
@@ -147,37 +107,36 @@
     <!-- 本月排行榜 -->
     <div class="current-mouth">
       <ul class="mui-table-view mui-grid-view">
-        <li class="mui-table-view-cell mui-media mui-col-xs-">
+        <li class="mui-table-view-cell mui-media mui-col-xs-6">
           <a href="#">
             <div class="mui-media-body body-title">本月畅销</div>
-            <img class="mui-media-object" src="../assets/images/7411.jpg">
-            <div class="mui-media-body body-warp">Color of SIP CBD</div>
-            <div class="mui-media-body">Color of SIP CBD</div>
+            <img class="mui-media-object" :src="booklist3[0]['img_url']">
+            <div class="mui-media-body body-warp">{{booklist3[0]['book_title']}}</div>
+            <div class="mui-media-body">{{booklist3[0]['book_author_names']}}</div>
             <div class="mui-media-body body-btn">TOP 30</div>
           </a>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-6">
           <a href="#">
             <div class="mui-media-body body-title">本月好评</div>
-            <img class="mui-media-object" src="../assets/images/7463.jpg">
-            <div class="mui-media-body body-warp">静静看这世界</div>
-            <div class="mui-media-body">静静看这世界</div>
+            <img class="mui-media-object" :src="booklist3[1]['img_url']">
+            <div class="mui-media-body body-warp">{{booklist3[1]['book_title']}}</div>
+            <div class="mui-media-body">{{booklist3[1]['book_author_names']}}</div>
             <div class="mui-media-body body-btn">TOP 30</div>
           </a>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-6">
           <a href="#">
             <div class="mui-media-body body-title">本月新书</div>
-            <img class="mui-media-object" src="../assets/images/7463.jpg">
-            <div class="mui-media-body body-warp">静静看这世界</div>
-            <div class="mui-media-body">静静看这世界</div>
+            <img class="mui-media-object" :src="booklist3[2]['img_url']">
+            <div class="mui-media-body body-warp">{{booklist3[2]['book_title']}}</div>
+            <div class="mui-media-body">{{booklist3[2]['book_author_names']}}</div>
             <div class="mui-media-body body-btn">TOP 30</div>
           </a>
         </li>
       </ul>
     </div>
-    <br>
-    <br>
+    <bottom></bottom>
   </div>
 </template>
 <style>
@@ -201,8 +160,8 @@
   color: #000;
 }
 .app-shop .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-object {
-  width: 94px;
-  height: 124px;
+  width: 5rem;
+  height: 7.5rem;
 }
 .app-shop .mui-table-view li {
   width: 33.33333%;
@@ -258,34 +217,42 @@
   width: 100%;
 }
 .current-mouth .mui-table-view.mui-grid-view {
-  padding: 0px;
+  padding: 10px;
   margin: 0px;
 }
-
+.app-shop .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
+  font-size: 0.8rem;
+  line-height: 0.9rem;
+  display: block;
+  width: 100%;
+  height: 0.9rem;
+  margin-top: 0.5rem;
+  text-overflow: ellipsis;
+  color: #333;
+}
 
 .current-mouth .mui-table-view.mui-grid-view .mui-table-view-cell:nth-child(1) {
-  border-top: 3px solid orangered;
+  border-top: 3px solid #f6ad77;
   border-left: 1px solid #fff;
   border-right: 1px solid #fff;
   background-color: #f6faf9;
   padding-bottom: 2rem;
 }
 .current-mouth .mui-table-view.mui-grid-view .mui-table-view-cell:nth-child(2) {
-  border-top: 3px solid green;
+  border-top: 3px solid #87ca8e;
   border-left: 1px solid #fff;
   border-right: 1px solid #fff;
   background-color: #f6faf9;
   padding-bottom: 2rem;
-
 }
 .current-mouth .mui-table-view.mui-grid-view .mui-table-view-cell:nth-child(3) {
-  border-top: 3px solid blue;
+  border-top: 3px solid #6dbde1;
   border-left: 1px solid #fff;
   border-right: 1px solid #fff;
   background-color: #f6faf9;
   padding-bottom: 2rem;
 }
-.current-mouth .mui-table-view-cell a{
+.current-mouth .mui-table-view-cell a {
   background-color: #f6faf9;
 }
 
@@ -293,10 +260,10 @@
   .mui-table-view.mui-grid-view
   .mui-table-view-cell:nth-child(1)
   .mui-media-body.body-title {
-  font-size: 1.4rem;
-  font-family: "黑体";
-  font-weight: bold;
-  color: orangered;
+  font-size: 1.1rem;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  color: #f6ad77;
   line-height: 2rem;
   height: 2rem;
   margin: 1rem 0;
@@ -305,10 +272,10 @@
   .mui-table-view.mui-grid-view
   .mui-table-view-cell:nth-child(2)
   .mui-media-body.body-title {
-  font-size: 1.4rem;
-  font-family: "黑体";
-  font-weight: bold;
-  color: green;
+  font-size: 1.1rem;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  color: #87ca8e;
   line-height: 2rem;
   height: 2rem;
   margin: 1rem 0;
@@ -317,10 +284,10 @@
   .mui-table-view.mui-grid-view
   .mui-table-view-cell:nth-child(3)
   .mui-media-body.body-title {
-  font-size: 1.4rem;
-  font-family: "黑体";
-  font-weight: bold;
-  color: blue;
+  font-size: 1.1rem;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  color: #6dbde1;
   line-height: 2rem;
   height: 2rem;
   margin: 1rem 0;
@@ -330,22 +297,26 @@
   .mui-table-view-cell:nth-child(1)
   .mui-media-body.body-btn {
   background-color: #fff;
-  color: orangered;
+  color: #f6ad77;
   width: 70%;
-   height: 38px;
+  height: 38px;
   line-height: 38px;
   margin: 10px auto;
+  font-size: 1rem;
+  font-weight: 650;
 }
 .current-mouth
   .mui-table-view.mui-grid-view
   .mui-table-view-cell:nth-child(2)
   .mui-media-body.body-btn {
   background-color: #fff;
-  color: green;
+  color: #87ca8e;
   width: 70%;
   height: 38px;
   line-height: 38px;
   margin: 10px auto;
+  font-size: 1rem;
+  font-weight: 650;
 }
 
 .current-mouth
@@ -353,27 +324,71 @@
   .mui-table-view-cell:nth-child(3)
   .mui-media-body.body-btn {
   background-color: #fff;
-  color: blue;
+  color: #6dbde1;
   width: 70%;
   height: 38px;
   line-height: 38px;
   margin: 10px auto;
+  font-size: 1rem;
+  font-weight: 650;
 }
 </style>
 <script>
 import searchTop from "../components/Search.vue";
+import bottom from "../components/Bottom.vue";
 export default {
   data() {
-    return {};
+    return {
+      booklist: [{ book_title: "", img_url: "", book_author_names: "" }],
+      booklist2: [{ book_title: "", img_url: "", book_author_names: "" }],
+      booklist3: [
+        { book_title: "", img_url: "", book_author_names: "" },
+        { book_title: "", img_url: "", book_author_names: "" },
+        { book_title: "", img_url: "", book_author_names: "" }
+      ],
+      pageindex: 1,
+      pagesize: 3
+    };
   },
-  mounted() {
-    mui.init();
-    mui(".mui-scroll-wrapper").scroll({
-      deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+  created() {
+    //console.log(1);
+    let url = `http://localhost:3000/booklist/booklist? this.pageindex}&pagesize=${
+      this.pagesize
+    }`;
+    this.axios.get(url).then(res => {
+      if (res.data.code == -1 && res.data.msg == "请登录") {
+        this.$router.push({ path: "login" });
+      } else {
+        this.booklist = res.data.data;
+      }
+
+      //console.log(this.booklist);
+    });
+    let url02 = `http://localhost:3000/booklist/booklist?pageindex=2&pagesize=${
+      this.pagesize
+    }`;
+    this.axios.get(url02).then(res => {
+      if (res.data.code == -1 && res.data.msg == "请登录") {
+        this.$router.push({ path: "login" });
+      } else {
+        this.booklist2 = res.data.data;
+      }
+    });
+    let url03 = `http://localhost:3000/booklist/booklist?pageindex=3&pagesize=${
+      this.pagesize
+    }`;
+    this.axios.get(url03).then(res => {
+      if (res.data.code == -1 && res.data.msg == "请登录") {
+        this.$router.push({ path: "login" });
+      } else {
+        this.booklist3 = res.data.data;
+      }
     });
   },
+  
   components: {
-    searchTop
+    searchTop,
+    bottom
   }
 };
 </script>

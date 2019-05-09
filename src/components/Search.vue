@@ -1,7 +1,7 @@
 <template>
   <div class="component-search">
     <div class="mui-input-row mui-search">
-      <h4 class="search-title">{{title}}</h4>
+      <div class="search-title">{{title}}</div>
       <input type="text" class placeholder>
       <span class="mui-icon mui-icon-bars"></span>
       <span class="mui-icon mui-icon-search"></span>
@@ -21,14 +21,18 @@
   border: none;
 }
 .component-search .mui-search .search-title {
-  width: 20%;
+  width: 25%;
   display: inline-block;
-  line-height: 34px;
+  line-height: 2rem;
   color: black;
-  margin: 1rem;
+  font-size:1.2rem;
+  height: 2rem;
+  margin: 0.5rem;
+  font-family: "Avenir";
+  font-weight:1000; 
 }
 .component-search .mui-search .mui-icon {
-  margin: 1rem;
+  margin: 0.5rem;
 }
 </style>
 <script>

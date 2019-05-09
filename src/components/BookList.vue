@@ -6,57 +6,30 @@
           <a href="javascript:;" class="btn-golden">重磅推荐</a>
         </div>
       </li>
-      <li class="mui-table-view-cell mui-media">
+      <li class="mui-table-view-cell mui-media" v-for="(item,i) of list" :key="i">
         <a href="javascript:;">
-          <img class="mui-pull-left" src="../assets/images/003_2.png">
+          <img class="mui-pull-left" :src="item.img_url">
           <div class="mui-media-body">
-            <h4>山青卷白云：女翻译与王维</h4>
-            <span>青溪客</span>
-            <p class="mui-ellipsis">描写盛唐气象不落俗套，以史实为基础的大胆颠覆了传统的诗人形象，带你穿越到一个活灵活现的唐朝</p>
-          </div>
-        </a>
-      </li>
-      <li class="mui-table-view-cell mui-media">
-        <a href="javascript:;">
-          <img class="mui-pull-left" src="../assets/images/003_4.png">
-          <div class="mui-media-body">
-            <h4>山青卷白云：女翻译与王维</h4>
-            <span>青溪客</span>
-            <p class="mui-ellipsis">描写盛唐气象不落俗套，以史实为基础的大胆颠覆了传统的诗人形象，带你穿越到一个活灵活现的唐朝</p>
-          </div>
-        </a>
-      </li>
-      <li class="mui-table-view-cell mui-media">
-        <a href="javascript:;">
-          <img class="mui-pull-left" src="../assets/images/003_5.png">
-          <div class="mui-media-body">
-            <h4>山青卷白云：女翻译与王维</h4>
-            <span>青溪客</span>
-            <p class="mui-ellipsis">描写盛唐气象不落俗套，以史实为基础的大胆颠覆了传统的诗人形象，带你穿越到一个活灵活现的唐朝</p>
-          </div>
-        </a>
-      </li>
-      <li class="mui-table-view-cell mui-media">
-        <a href="javascript:;">
-          <img class="mui-pull-left" src="../assets/images/003_5.png">
-          <div class="mui-media-body">
-            <h4>山青卷白云：女翻译与王维</h4>
-            <span>青溪客</span>
+            <h4>{{item.book_title}}</h4>
+            <span>{{item.book_author_names}}</span>
             <p class="mui-ellipsis">描写盛唐气象不落俗套，以史实为基础的大胆颠覆了传统的诗人形象，带你穿越到一个活灵活现的唐朝</p>
           </div>
         </a>
       </li>
     </ul>
+    <p>
+      <span @click="loadMore" :style="display" >加载更多</span>
+    </p>
   </div>
 </template>
 <style>
 .app-book-list {
   /* margin: 10px 5px 50px 5px !important; */
-  border:none;
+  border: none;
   background-color: #fff;
 }
 
-.app-book-list .mui-table-view{
+.app-book-list .mui-table-view {
   border: 0px;
 }
 .app-book-list .btn-golden {
@@ -104,8 +77,60 @@
 </style>
 <script>
 export default {
+  props: ["kindname"],
   data() {
-    return {};
+    return {
+      curKindName: "",
+      pageindex: 1,
+      pageszie: 10,
+      pagecount:1,
+      display:"",
+      list: [{book_title:"",book_author_names:"",img_url:""}]
+    };
+  },
+  created() {
+    this.getbooklist();
+    //  if(this.pageindex>=this.pagecount){
+    //       this.display="display:none;";
+    //     }else{
+    //       this.display="";
+    //     }
+  },
+  methods: {
+    getbooklist() {
+
+      this.curKindName = this.kindname;
+      var url = `http://localhost:3000/readbookapi/getBykindname?kindname=${
+        this.curKindName
+      }&pageindex=${this.pageindex}&pagesize=4`;
+      this.axios.get(url).then(res => {
+        if (this.list.length > 1&&this.pageindex>1) {
+        this.list=this.list.concat(res.data.data);
+        } else {
+          this.list = res.data.data;
+        }
+         this.pagecount=parseInt(res.data.pagecount);
+       console.log(this.pagecount);
+       console.log(this.pageindex);
+      });
+    },
+    loadMore() {
+      this.pageindex += 1;
+      this.getbooklist();
+    }
+  },
+  watch: {
+    kindname() {
+      this.pageindex=1;
+      this.getbooklist();
+    },
+    pagecount(){
+      if(this.pageindex>=this.pagecount){
+        this.display="display:none";
+      }else{
+        this.display="display:block";
+      }
+    }
   }
 };
 </script>

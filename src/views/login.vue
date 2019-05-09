@@ -8,16 +8,22 @@
       <h6 class="title">使用豆瓣账号登录</h6>
       <br>
       <div class="mui-input-row">
-        <input type="text" class="color_01 font_c_01" placeholder="邮箱/手机号">
+        <input
+          type="text"
+          v-model="
+        nickname"
+          class="color_01 font_c_01"
+          placeholder="邮箱/手机号"
+        >
       </div>
-      <div class="mui-input-row mui-password">
-        <input type="password" class="mui-input-password color_01 font_c_01" placeholder="密码">
+      <div class="mui-input-row">
+        <input type="password" v-model="pwd" class="color_01 font_c_01" placeholder="密码">
       </div>
       <div class="content-right">
         <a id="forgetPassword">忘记密码?</a>
       </div>
       <div class="mui-content-padded">
-        <input type="button" class="loginbutton" value="登录">
+        <input type="button" @click="login" class="loginbutton" value="登录">
         <br>
         <div class="link-area">
           <a id="reg">注册账号</a>
@@ -30,14 +36,40 @@
       <div class="mui-content-padded oauth-area">
         <h6 class="font_c_01">使用第三方账号登录</h6>
         <br>
-        <img src="../assets/images/icon_ww.png" alt="">
+        <img src="../assets/images/icon_ww.png" alt>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { Toast } from "mint-ui";
+export default {
+  data() {
+    return {
+      nickname: "",
+      pwd: ""
+    };
+  },
+  methods: {
+    login() {
+      if (this.nickname != "" && this.pwd != "") {
+        var url = `http://localhost:3000/readbookapi/login?nickname=${
+          this.nickname
+        }&pwd=${this.pwd}`;
+        this.axios(url).then(res => {
+          if(res.data.code==-1){
+            Toast("用户名或密码错误");
+          }else if(res.data.code==1){
+            this.$router.push({ path: "home" });
+          }
+        });
+      } else {
+        Toast("用户名与密码不能为空");
+      }
+    }
+  }
+};
 </script>
 <style scoped>
 * {
@@ -96,10 +128,27 @@ button {
   color: #000;
 }
 
-.oauth-area{
+.oauth-area {
   position: absolute;
-  top:75%;
+  top: 75%;
   left: 50%;
- transform: translate(-53%,0);
+  transform: translate(-53%, 0);
 }
+
+/* .app-login .mui-input-row .mui-input-clear ~ .mui-icon-clear, .mui-input-row .mui-input-speech ~ .mui-icon-speech, .mui-input-row .mui-input-password ~ .mui-icon-eye {
+    font-size: 20px;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    right: 30px;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    color: #999;
+} */
+.app-login .mui-password>span{
+   /* right: 30px; */
+   line-height: 0;
+}
+
 </style>

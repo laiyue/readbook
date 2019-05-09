@@ -5,29 +5,35 @@
         class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"
       >
         <div class="mui-scroll">
-          <a class="mui-control-item" href="#item2mobile" data-wid="tab-top-subpage-2.html">精选</a>
-          <a class="mui-control-item" href="#item3mobile" data-wid="tab-top-subpage-3.html">悬疑</a>
-          <a class="mui-control-item" href="#item4mobile" data-wid="tab-top-subpage-4.html">女性</a>
-          <a class="mui-control-item" href="#item5mobile" data-wid="tab-top-subpage-5.html">幻想</a>
-          <a class="mui-control-item" href="#item5mobile" data-wid="tab-top-subpage-5.html">文艺</a>
-          <a class="mui-control-item" href="#item5mobile" data-wid="tab-top-subpage-5.html">历史</a>
+          <a class="mui-control-item">精选</a>
+          <a class="mui-control-item">悬疑</a>
+          <a class="mui-control-item">女性</a>
+          <a class="mui-control-item">幻想</a>
+          <a class="mui-control-item">文艺</a>
+          <a class="mui-control-item">历史</a>
         </div>
       </div>
     </div>
   </div>
 </template>
 <style>
-.app-navbar{
+/* .app-navbar{
   padding: 0 0.5rem;
-}
-.app-navbar .mui-scroll-wrapper .mui-control-item {
+} */
+/* .app-navbar .mui-scroll-wrapper .mui-control-item {
   width:5.5rem;
-}
+} */
 * {
   touch-action: pan-y;
 }
 .app-navbar{
   background: #fff;
+}
+.app-navbar .mui-segmented-control.mui-scroll-wrapper .mui-control-item {
+    display: inline-block;
+    width: auto;
+    padding: 0 15px;
+    border: 0;
 }
 </style>
 <script>

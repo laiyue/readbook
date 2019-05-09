@@ -1,7 +1,22 @@
 <template>
   <div class="app-home">
     <search-top title="原创"></search-top>
-    <nav-bar></nav-bar>
+    <!-- <nav-bar></nav-bar> -->
+    <div id="slider" class="mui-slider">
+      <div
+        class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"
+      >
+        <div class="mui-scroll">
+          <a
+            class="mui-control-item"
+            v-for="(item,i) of kindlist"
+            :key="i"
+            :data-kindname="item.kind_name"
+            @click="changeTab"
+          >{{item.kind_name}}</a>
+        </div>
+      </div>
+    </div>
     <mt-swipe class="mint-swipe" :auto="4000" :show-indicators="true">
       <mt-swipe-item>
         <img src="../assets/images/7410.jpg" alt>
@@ -31,24 +46,28 @@
         <li class>
           <div class="nav-item">
             <span class></span>
+            <!-- <img src="../assets/images/icon01.png" alt> -->
             排行
           </div>
         </li>
         <li class>
           <div class="nav-item">
             <span class></span>
+            <!-- <img src="../assets/images/icon02.png" alt> -->
             推荐
           </div>
         </li>
         <li class>
           <div class="nav-item">
             <span class></span>
+            <!-- <img src="../assets/images/icon03.png" alt> -->
             分类
           </div>
         </li>
       </ul>
     </div>
-    <book-list></book-list>
+    <book-list :kindname="curKindName"></book-list>
+    <bottom></bottom>
     <!-- <serialization-list></serialization-list> -->
   </div>
 </template>
@@ -59,10 +78,13 @@ import navBar from "../components/NavBar.vue";
 //import serializationList from "../components/SerializationList.vue";
 import shop from "../views/Shop.vue";
 import searchTop from "../components/Search.vue";
+import bottom from "../components/Bottom.vue";
 export default {
   data() {
     return {
-      value: ""
+      value: "",
+      curKindName: "悬疑",
+      kindlist: [{ kind_name: "", kind_id: 0 }]
     };
   },
   components: {
@@ -70,7 +92,32 @@ export default {
     navBar,
     //serializationList,
     shop,
-    searchTop
+    searchTop,
+    bottom
+  },
+  created() {
+    this.getkind();
+  },
+  methods: {
+    getkind() {
+      var url = "http://localhost:3000/readbookapi/getKindName";
+      this.axios.get(url).then(res => {
+        if (res.data.msg && res.data.msg == "请登录") {
+          this.$router.push({ path: "login" });
+        } else {
+          this.kindlist = res.data.data;
+        }
+      });
+    },
+    changeTab(e) {
+      this.curKindName = e.target.dataset.kindname;
+    }
+  },
+  mounted() {
+    mui.init();
+    mui(".mui-scroll-wrapper").scroll({
+      deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+    });
   }
 };
 </script>
@@ -88,9 +135,19 @@ a {
 }
 .app-home {
   background-color: #ebf0f3;
+  padding-bottom: 50px;
   /* font-family:"汉仪旗黑"; */
 }
 
+.app-home .mui-segmented-control.mui-scroll-wrapper .mui-control-item {
+  display: inline-block;
+  width: auto;
+  padding: 0 1.2rem;
+  border: 0;
+}
+#slider {
+  background: #fff;
+}
 .app-home .mui-table-view:before {
   height: 0;
   top: 0;

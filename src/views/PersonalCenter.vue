@@ -8,7 +8,13 @@
         </span>
       </h1>
     </header>
+
     <div class="mui-content">
+      <div class="user-info">
+        <img :src="headImg" alt>
+        <span class="nickname">{{nickname}}</span>
+        <span class="mui-icon mui-icon-compose" @click="editinfo"></span>
+      </div>
       <ul class="mui-table-view">
         <li class="mui-table-view-cell">
           <a>
@@ -106,13 +112,43 @@
         </li>
       </ul>
     </div>
+    <bottom></bottom>
   </div>
 </template>
 <style>
+.app-personal-center .user-info {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-content: center;
+  height: 3.75rem;
+  line-height: 3.75rem;
+  padding: 0.75rem;
+  background-color: #fff;
+}
+.app-personal-center .user-info img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 1px #42b983;
+}
+.app-personal-center .user-info span {
+  line-height: 2.5rem;
+  height: 2.5rem;
+  color: #42b983;
+}
+.app-personal-center .user-info .nickname {
+  margin-left: 1rem;
+  vertical-align: middle;
+  color: #42b983;
+  border: 0px;
+}
+
 .app-personal-center .mui-table-view-cell {
   text-align: left;
 }
-.app-personal-center .mui-icon-extra{
+
+.app-personal-center .mui-icon-extra {
   font-size: 18px;
 }
 .app-personal-center .mui-table-view {
@@ -149,9 +185,42 @@
 }
 </style>
 <script>
+import bottom from "../components/Bottom.vue";
 export default {
   data() {
-    return {};
+    return {
+      nickname: "",
+      headImg: ""
+    };
+  },
+  created() {
+    this.axios
+      .get("http://localhost:3000/readbookapi/getuserinfo")
+      .then(res => {
+        console.log(res.data);
+        if (res.data.msg == "请登录") {
+          this.$router.push({ path: "login" });
+        } else {
+          this.nickname = res.data.user.nickname;
+          this.headImg =
+            "http://localhost:3000" +
+            res.data.user.head_img.replace("/public", "");
+        }
+      });
+  },
+  methods: {
+    editinfo() {
+      this.$router.push({
+        path: "/Editinfo",
+        query: {
+          nickname: this.nickname,
+          head_img: this.headImg
+        }
+      });
+    }
+  },
+  components: {
+    bottom
   }
 };
 </script>
