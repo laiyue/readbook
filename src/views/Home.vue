@@ -100,7 +100,7 @@ export default {
   },
   methods: {
     getkind() {
-      var url = "http://localhost:3000/readbookapi/getKindName";
+      var url = "http://laiycoder.com:3000/readbookapi/getKindName";
       this.axios.get(url).then(res => {
         if (res.data.msg && res.data.msg == "请登录") {
           this.$router.push({ path: "login" });

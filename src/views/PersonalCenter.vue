@@ -195,7 +195,7 @@ export default {
   },
   created() {
     this.axios
-      .get("http://localhost:3000/readbookapi/getuserinfo")
+      .get("http://laiycoder.com:3000/readbookapi/getuserinfo")
       .then(res => {
         console.log(res.data);
         if (res.data.msg == "请登录") {
@@ -203,7 +203,7 @@ export default {
         } else {
           this.nickname = res.data.user.nickname;
           this.headImg =
-            "http://localhost:3000" +
+            "http://laiycoder.com:3000" +
             res.data.user.head_img.replace("/public", "");
         }
       });

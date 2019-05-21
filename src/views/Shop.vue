@@ -42,8 +42,9 @@
               class="mui-table-view-cell mui-media mui-col-xs-6"
               v-for="(item,i) of booklist"
               :key="i"
+              data-book_id="item.book_id" @click="getDetail"
             >
-              <a href="#">
+              <a href="javascript:;" >
                 <img class="mui-media-object" :src="item.img_url">
                 <div class="mui-media-body">{{item.book_title}}</div>
                 <div class="mui-media-body">作者:{{item.book_author_names}}</div>
@@ -57,8 +58,9 @@
               class="mui-table-view-cell mui-media mui-col-xs-6"
               v-for="(item,i) of booklist"
               :key="i"
+              :data-book_id="item.book_id" @click="getDetail"
             >
-              <a href="#">
+              <a href="javascript:;" >
                 <img class="mui-media-object" :src="item.img_url">
                 <div class="mui-media-body">{{item.book_title}}</div>
                 <div class="mui-media-body">作者:{{item.book_author_names}}</div>
@@ -72,8 +74,9 @@
               class="mui-table-view-cell mui-media mui-col-xs-6"
               v-for="(item,i) of booklist2"
               :key="i"
+              :data-book_id="item.book_id" @click="getDetail"
             >
-              <a href="#">
+              <a href="javascript:;" >
                 <img class="mui-media-object" :src="item.img_url">
                 <div class="mui-media-body">{{item.book_title}}</div>
                 <div class="mui-media-body">作者:{{item.book_author_names}}</div>
@@ -88,8 +91,9 @@
               class="mui-table-view-cell mui-media mui-col-xs-6"
               v-for="(item,i) of booklist2"
               :key="i"
+              data-book_id="item.book_id" @click="getDetail"
             >
-              <a href="#">
+              <a href="javascript:;" >
                 <img class="mui-media-object" :src="item.img_url">
                 <div class="mui-media-body">{{item.book_title}}</div>
                 <div class="mui-media-body">作者:{{item.book_author_names}}</div>
@@ -352,7 +356,7 @@ export default {
   },
   created() {
     //console.log(1);
-    let url = `http://localhost:3000/booklist/booklist? this.pageindex}&pagesize=${
+    let url = `http://laiycoder.com:3000/booklist/booklist? this.pageindex}&pagesize=${
       this.pagesize
     }`;
     this.axios.get(url).then(res => {
@@ -364,7 +368,7 @@ export default {
 
       //console.log(this.booklist);
     });
-    let url02 = `http://localhost:3000/booklist/booklist?pageindex=2&pagesize=${
+    let url02 = `http://laiycoder.com:3000/booklist/booklist?pageindex=2&pagesize=${
       this.pagesize
     }`;
     this.axios.get(url02).then(res => {
@@ -374,7 +378,7 @@ export default {
         this.booklist2 = res.data.data;
       }
     });
-    let url03 = `http://localhost:3000/booklist/booklist?pageindex=3&pagesize=${
+    let url03 = `http://laiycoder.com:3000/booklist/booklist?pageindex=3&pagesize=${
       this.pagesize
     }`;
     this.axios.get(url03).then(res => {
@@ -385,7 +389,18 @@ export default {
       }
     });
   },
-  
+  methods: {
+    getDetail(e) {
+      var book_id=e.currentTarget.dataset.book_id;
+      //console.log(book_id);
+        this.$router.push({
+        path: "/BookDetail",
+        query: {
+          book_id: book_id
+        }
+      });
+    }
+  },
   components: {
     searchTop,
     bottom

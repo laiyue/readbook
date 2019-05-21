@@ -98,9 +98,8 @@ export default {
   },
   methods: {
     getbooklist() {
-
       this.curKindName = this.kindname;
-      var url = `http://localhost:3000/readbookapi/getBykindname?kindname=${
+      var url = `http://laiycoder.com:3000/readbookapi/getBykindname?kindname=${
         this.curKindName
       }&pageindex=${this.pageindex}&pagesize=4`;
       this.axios.get(url).then(res => {

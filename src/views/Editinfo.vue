@@ -106,7 +106,7 @@ export default {
   },
   methods: {
     loginout() {
-      this.axios("http://localhost:3000/readbookapi/loginout").then(res => {
+      this.axios("http://laiycoder.com:3000/readbookapi/loginout").then(res => {
          this.$router.push({path:"/login"});
       });
     },
@@ -121,12 +121,12 @@ export default {
           "Content-Type": "multipart/form-data"
         }
       };
-      let uploadUrl = "http://localhost:3000/upload/uploadFiles";
+      let uploadUrl = "http://laiycoder.com:3000/upload/uploadFiles";
       this.axios
         .post(uploadUrl, fd, config)
         .then(res => {
           if(res.data.head_img){
-            this.head_img="http://localhost:3000"+res.data.head_img.replace("/public","");
+            this.head_img="http://laiycoder.com:3000"+res.data.head_img.replace("/public","");
             //console.log(this.head_img);
           }
         })

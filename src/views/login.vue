@@ -54,7 +54,7 @@ export default {
   methods: {
     login() {
       if (this.nickname != "" && this.pwd != "") {
-        var url = `http://localhost:3000/readbookapi/login?nickname=${
+        var url = `http://laiycoder.com:3000/readbookapi/login?nickname=${
           this.nickname
         }&pwd=${this.pwd}`;
         this.axios(url).then(res => {
