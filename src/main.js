@@ -23,11 +23,18 @@ Vue.config.productionTip = false
 axios.defaults.withCredentials = true;
 Vue.prototype.axios = axios;
 import MintUI from "mint-ui";
+import VueLazyload from 'vue-lazyload' 
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: 'dist/error.png',
+  loading: 'dist/loading.gif',
+  attempt: 1
+})
 Vue.use(MintUI);
 /*eslint-disable no-new */
 new Vue({
   // el: '#app',
-   mode: 'history',
+  // mode: 'history',
   router,
   components: { App },
   template: '<App/>'

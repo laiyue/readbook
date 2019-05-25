@@ -116,6 +116,9 @@
   </div>
 </template>
 <style>
+.app-personal-center{
+  font-size: 14px;
+}
 .app-personal-center .user-info {
   display: flex;
   justify-content: flex-start;

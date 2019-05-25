@@ -1,24 +1,27 @@
 <template>
-  <div class="app-book-list">
-    <ul class="mui-table-view">
+  <div class="app-book-list" ref="viewBox">
+    <ul class="mui-table-view" >
       <li class="mui-media btn-golden-box">
         <div class="mui-media-body">
           <a href="javascript:;" class="btn-golden">重磅推荐</a>
         </div>
       </li>
-      <li class="mui-table-view-cell mui-media" v-for="(item,i) of list" :key="i">
-        <a href="javascript:;">
-          <img class="mui-pull-left" :src="item.img_url">
+      <li class="mui-table-view-cell mui-media" :data-book_id="item.id" @click="getDetail" v-for="(item,i) of list" :key="i">
+        <a href="javascript:;"  >
+          <img class="mui-pull-left" v-lazy="item.img_url" :src="item.img_url">
           <div class="mui-media-body">
             <h4>{{item.book_title}}</h4>
             <span>{{item.book_author_names}}</span>
-            <p class="mui-ellipsis">描写盛唐气象不落俗套，以史实为基础的大胆颠覆了传统的诗人形象，带你穿越到一个活灵活现的唐朝</p>
+            <p class="mui-ellipsis">
+              {{item.abstract}}
+              <!-- 描写盛唐气象不落俗套，以史实为基础的大胆颠覆了传统的诗人形象，带你穿越到一个活灵活现的唐朝 -->
+            </p>
           </div>
         </a>
       </li>
     </ul>
     <p>
-      <span @click="loadMore" :style="display" >加载更多</span>
+      <span @click="loadMore" :style="display" ref="loadmore">没有更多了</span>
     </p>
   </div>
 </template>
@@ -76,25 +79,23 @@
 }
 </style>
 <script>
+import { Toast } from "mint-ui";
 export default {
   props: ["kindname"],
   data() {
     return {
+      loadmore:this.$refs.loadmore,
       curKindName: "",
       pageindex: 1,
       pageszie: 10,
-      pagecount:1,
-      display:"",
-      list: [{book_title:"",book_author_names:"",img_url:""}]
+      pagecount: 1,
+      display: "",
+      list: [{ book_title: "", book_author_names: "", img_url: "" }]
     };
   },
   created() {
     this.getbooklist();
-    //  if(this.pageindex>=this.pagecount){
-    //       this.display="display:none;";
-    //     }else{
-    //       this.display="";
-    //     }
+    
   },
   methods: {
     getbooklist() {
@@ -103,33 +104,56 @@ export default {
         this.curKindName
       }&pageindex=${this.pageindex}&pagesize=4`;
       this.axios.get(url).then(res => {
-        if (this.list.length > 1&&this.pageindex>1) {
-        this.list=this.list.concat(res.data.data);
+        if (this.list.length > 1 && this.pageindex > 1) {
+          Toast("加载中...");
+          this.list = this.list.concat(res.data.data);
         } else {
           this.list = res.data.data;
         }
-         this.pagecount=parseInt(res.data.pagecount);
-       console.log(this.pagecount);
-       console.log(this.pageindex);
+        this.pagecount = parseInt(res.data.pagecount);
       });
     },
     loadMore() {
       this.pageindex += 1;
+       
       this.getbooklist();
+    },
+    handleScroll(e) {
+     
+      //var loadmore=this.$refs.loadmore;
+      var deviceH=window.outerHeight;
+      var eleH=this.loadmore.getBoundingClientRect().top;
+      if(eleH<=deviceH-81){
+        this.loadMore();
+      }
+      
+    },
+     getDetail(e) {
+      var book_id=e.currentTarget.dataset.book_id;
+        this.$router.push({
+        path: "/BookDetail",
+        query: {
+          book_id: book_id
+        }
+      });
     }
   },
   watch: {
     kindname() {
-      this.pageindex=1;
+      this.pageindex = 1;
       this.getbooklist();
     },
-    pagecount(){
-      if(this.pageindex>=this.pagecount){
-        this.display="display:none";
-      }else{
-        this.display="display:block";
+    pagecount() {
+      if (this.pageindex >= this.pagecount) {
+        this.display = "display:none";
+      } else {
+        this.display = "display:block";
       }
     }
+  },
+  mounted() {
+    this.loadmore=this.$refs.loadmore;
+    window.addEventListener("scroll", this.handleScroll);
   }
 };
 </script>

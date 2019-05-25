@@ -42,7 +42,7 @@
               class="mui-table-view-cell mui-media mui-col-xs-6"
               v-for="(item,i) of booklist"
               :key="i"
-              data-book_id="item.book_id" @click="getDetail"
+              data-book_id="item.id" @click="getDetail"
             >
               <a href="javascript:;" >
                 <img class="mui-media-object" :src="item.img_url">
@@ -58,7 +58,7 @@
               class="mui-table-view-cell mui-media mui-col-xs-6"
               v-for="(item,i) of booklist"
               :key="i"
-              :data-book_id="item.book_id" @click="getDetail"
+              :data-book_id="item.id" @click="getDetail"
             >
               <a href="javascript:;" >
                 <img class="mui-media-object" :src="item.img_url">
@@ -74,7 +74,7 @@
               class="mui-table-view-cell mui-media mui-col-xs-6"
               v-for="(item,i) of booklist2"
               :key="i"
-              :data-book_id="item.book_id" @click="getDetail"
+              :data-book_id="item.id" @click="getDetail"
             >
               <a href="javascript:;" >
                 <img class="mui-media-object" :src="item.img_url">
@@ -91,7 +91,7 @@
               class="mui-table-view-cell mui-media mui-col-xs-6"
               v-for="(item,i) of booklist2"
               :key="i"
-              data-book_id="item.book_id" @click="getDetail"
+              data-book_id="item.id" @click="getDetail"
             >
               <a href="javascript:;" >
                 <img class="mui-media-object" :src="item.img_url">

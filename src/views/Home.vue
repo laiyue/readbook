@@ -13,7 +13,10 @@
             :key="i"
             :data-kindname="item.kind_name"
             @click="changeTab"
-          >{{item.kind_name}}</a>
+          >
+            {{item.kind_name}}
+            <div :class="line"></div>
+          </a>
         </div>
       </div>
     </div>
@@ -84,6 +87,7 @@ export default {
     return {
       value: "",
       curKindName: "悬疑",
+      line:"",
       kindlist: [{ kind_name: "", kind_id: 0 }]
     };
   },
@@ -111,6 +115,8 @@ export default {
     },
     changeTab(e) {
       this.curKindName = e.target.dataset.kindname;
+      console.log(e.target);
+      
     }
   },
   mounted() {
@@ -140,6 +146,7 @@ a {
 }
 
 .app-home .mui-segmented-control.mui-scroll-wrapper .mui-control-item {
+  position: relative;
   display: inline-block;
   width: auto;
   padding: 0 1.2rem;
@@ -157,6 +164,7 @@ a {
   height: 0;
 }
 .app-home .mint-swipe {
+  /* margin-top: 10px; */
   height: 100px;
 }
 .app-home img {
@@ -223,6 +231,18 @@ a {
   border-radius: 3%;
   margin: 3px;
   background-color: #fff;
+}
+.mui-slider
+  .line{
+  content: " ";
+  position: absolute;
+  height: 5px;
+  width: 4.8rem;
+  right: 0;
+  bottom: 0;
+  left:0;
+  background-color: red;
+  border: 1rpx solid red;
 }
 </style>
 

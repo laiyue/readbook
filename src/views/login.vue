@@ -129,8 +129,8 @@ button {
 }
 
 .oauth-area {
-  position: absolute;
-  top: 75%;
+  position: fixed;
+  top: 450px;
   left: 50%;
   transform: translate(-53%, 0);
 }

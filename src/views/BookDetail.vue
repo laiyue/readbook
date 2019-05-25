@@ -3,7 +3,7 @@
     <!-- 顶部导航 -->
     <div class="mui-input-row mui-search">
       <div class="search-title">
-        <span class="mui-icon mui-icon-arrowthinleft"></span>电子书
+        <span class="mui-icon mui-icon-arrowthinleft" @click="goback"></span>电子书
       </div>
       <div class="search-right">
         <span class="mui-icon mui-icon-extra mui-icon-extra-share"></span>
@@ -12,7 +12,7 @@
     <!-- 图书信息 -->
     <div class="book-intro">
       <div class="book-left">
-        <h4>书的标题</h4>
+        <h4>{{bookinfo.book_title}}</h4>
         <p>
           ★★★★★ 暂无评分
           <span class="mui-icon mui-icon-help"></span>
@@ -20,13 +20,13 @@
         <p class="span-12">
           <a>
             <span class="color-7">★ 7.7</span>
-            <span>222 评价 | 豆瓣读书</span>
+            <span>{{bookinfo.rating_cnt}} 评价 | {{bookinfo.publisher}}</span>
           </a>
         </p>
-        <p>陆秋槎 著</p>
+        <p>{{bookinfo.book_author_names}} 著</p>
         <p>图书/虚构</p>
         <p>新星出版社/2019-04</p>
-        <p>约115,000字</p>
+        <p>{{bookinfo.round_word_count}}</p>
         <p class="span-price">
           <span>￥</span>
           <s>27.99</s>
@@ -34,10 +34,7 @@
         </p>
       </div>
       <div class="book-right">
-        <img
-          src="https://img3.doubanio.com/view/ark_article_cover/retina/public/108170826.jpg?v=1552027429"
-          alt
-        >
+        <img :src="bookinfo.img_url" alt>
       </div>
     </div>
     <div class="mui-table-view message">
@@ -47,14 +44,7 @@
     </div>
     <div class="book-intro-detail">
       <h4>简介</h4>
-      <div class="book-intro-text">
-        测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
-        测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
-        测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
-        测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
-        测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
-        测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
-      </div>
+      <div class="book-intro-text">{{bookinfo.abstract}}</div>
     </div>
     <div class="book-bottom">
       <nav class="mui-bar mui-bar-tab">
@@ -227,17 +217,17 @@
 .span-12 a span {
   font-size: 0.8rem;
 }
-.span-price span:nth-child(1){
+.span-price span:nth-child(1) {
   font-size: 1rem;
   font-weight: 1000;
   color: #7cd4be;
 }
-.span-price s{
+.span-price s {
   font-size: 1rem;
   font-weight: 1000;
   color: #ddd;
 }
-.span-price span:nth-child(3){
+.span-price span:nth-child(3) {
   font-size: 1rem;
   font-weight: 1000;
   color: #7cd4be;
@@ -264,7 +254,7 @@ import searchTop from "../components/Search.vue";
 //     "promotion_url":"/promotion/74712/",
 //     "rating_cnt":78,
 //     "item_cover_urls":[
-//         
+//
 //     ],
 //     "promotion_remark":"限时特价",
 //     "title":"埃勒里·奎因侦探小说“国名系列”全集（套装共9册）",
@@ -274,23 +264,56 @@ import searchTop from "../components/Search.vue";
 // 埃勒里·奎因最艰难的抉择！
 // 魔术般的犯罪手法，一气呵成的推理过程，尽显逻辑之美！"
 // }
+
+// {"id":1,"book_id":108430815,"book_title":"摇滚侦探","url":"/ebook/108430815/","img_url":"https://img3.doubanio.com/view/ark_article_cover/retina/public/108430815.jpg?v=1552635833","kind_ids":"508,","kind_names":"悬疑,","book_author_ids":"/author/63740042/,","book_author_names":"杨林,","add_date":"2019-05-03T16:00:00.000Z"}
 export default {
   data() {
     return {
-      bookinfo:{fixed_price:0.00,price:39.00,cover_url:'',category_text:''
-      ,agent:'',promotion_end_time:'',author:'',round_word_count:0}
-      
+      bookinfo: {
+        book_id: "",
+        book_title: "",
+        img_url: "",
+        book_author_names: "",
+        fixed_price: 0.0,
+        price: 39.0,
+        cover_url: "",
+        category_text: "",
+        agent: "",
+        promotion_end_time: "",
+        author: "",
+        round_word_count: 0,
+        abstract: "",
+        publisher: "",
+        rating_cnt: ""
+      }
     };
   },
-  created(){
-    var book_id=this.route.query.book_id
-    ;
+  created() {
+    var book_id = this.$route.query.book_id;
     console.log(book_id);
-    // var url=`https://read.douban.com/j/bundle/${book_id}/`;
-    // this.axios.get(url)
-    // .then(result=>{
-    //   console.log(result);
-    // })
+    var url = `http://laiycoder.com:3000/readbookapi/getById?bid=${book_id}`;
+    this.axios.get(url).then(result => {
+      if (result.data.code == 1) {
+        var obj = result.data.data[0];
+        this.bookinfo.rating_cnt = obj.rating_cnt;
+        this.bookinfo.publisher = obj.publisher;
+        this.bookinfo.round_word_count = obj.round_word_count;
+        this.bookinfo.abstract = obj.abstract;
+        this.bookinfo.book_id = obj.book_id;
+        this.bookinfo.book_title = obj.book_title;
+        this.bookinfo.img_url = obj.img_url;
+        this.bookinfo.book_author_names = obj.book_author_names
+          .toString()
+          .substring(0, obj.book_author_names.length - 1);
+      } else {
+        console.log(result.data);
+      }
+    });
+  },
+  methods: {
+    goback() {
+      console.log(window.location.hash);
+    }
   },
   components: {
     searchTop
