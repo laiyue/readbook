@@ -91,11 +91,14 @@
 }
 </style>
 <script>
+
 export default {
+
   data() {
     return {
       nickname: "",
-      head_img: ""
+      head_img: "",
+    
     };
   },
   created() {

@@ -1,13 +1,19 @@
 <template>
   <div class="app-book-list" ref="viewBox">
-    <ul class="mui-table-view" >
+    <ul class="mui-table-view">
       <li class="mui-media btn-golden-box">
         <div class="mui-media-body">
           <a href="javascript:;" class="btn-golden">重磅推荐</a>
         </div>
       </li>
-      <li class="mui-table-view-cell mui-media" :data-book_id="item.id" @click="getDetail" v-for="(item,i) of list" :key="i">
-        <a href="javascript:;"  >
+      <li
+        class="mui-table-view-cell mui-media"
+        :data-book_id="item.id"
+        @click="getDetail"
+        v-for="(item,i) of list"
+        :key="i"
+      >
+        <a href="javascript:;">
           <img class="mui-pull-left" v-lazy="item.img_url" :src="item.img_url">
           <div class="mui-media-body">
             <h4>{{item.book_title}}</h4>
@@ -84,7 +90,7 @@ export default {
   props: ["kindname"],
   data() {
     return {
-      loadmore:this.$refs.loadmore,
+      loadmore: this.$refs.loadmore,
       curKindName: "",
       pageindex: 1,
       pageszie: 10,
@@ -95,7 +101,6 @@ export default {
   },
   created() {
     this.getbooklist();
-    
   },
   methods: {
     getbooklist() {
@@ -105,8 +110,17 @@ export default {
       }&pageindex=${this.pageindex}&pagesize=4`;
       this.axios.get(url).then(res => {
         if (this.list.length > 1 && this.pageindex > 1) {
-          Toast("加载中...");
+          //Toast("加载中...");
           this.list = this.list.concat(res.data.data);
+          //var tempurl = "https://images.weserv.nl/?url=";
+          // for (let i = 0; i < this.list.length; i++) {
+          //   if (
+          //     this.list[i]["img_url"].toString().indexOf("images.weserv.nl") ==
+          //     -1
+          //   ) {
+          //     this.list[i]["img_url"] = tempurl + this.list[i]["img_url"];
+          //   }
+          // }
         } else {
           this.list = res.data.data;
         }
@@ -115,22 +129,19 @@ export default {
     },
     loadMore() {
       this.pageindex += 1;
-       
+
       this.getbooklist();
     },
     handleScroll(e) {
-     
-      //var loadmore=this.$refs.loadmore;
-      var deviceH=window.outerHeight;
-      var eleH=this.loadmore.getBoundingClientRect().top;
-      if(eleH<=deviceH-81){
+      var deviceH = window.outerHeight;
+      var eleH = this.loadmore.getBoundingClientRect().top;
+      if (eleH <= deviceH - 81) {
         this.loadMore();
       }
-      
     },
-     getDetail(e) {
-      var book_id=e.currentTarget.dataset.book_id;
-        this.$router.push({
+    getDetail(e) {
+      var book_id = e.currentTarget.dataset.book_id;
+      this.$router.push({
         path: "/BookDetail",
         query: {
           book_id: book_id
@@ -152,7 +163,7 @@ export default {
     }
   },
   mounted() {
-    this.loadmore=this.$refs.loadmore;
+    this.loadmore = this.$refs.loadmore;
     window.addEventListener("scroll", this.handleScroll);
   }
 };

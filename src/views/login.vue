@@ -51,6 +51,9 @@ export default {
       pwd: ""
     };
   },
+  created(){
+    
+  },
   methods: {
     login() {
       if (this.nickname != "" && this.pwd != "") {
@@ -58,9 +61,10 @@ export default {
           this.nickname
         }&pwd=${this.pwd}`;
         this.axios(url).then(res => {
-          if(res.data.code==-1){
+          console.log(res.data);
+          if(res.data.code===-1){
             Toast("用户名或密码错误");
-          }else if(res.data.code==1){
+          }else if(res.data.code===1){
             this.$router.push({ path: "home" });
           }
         });

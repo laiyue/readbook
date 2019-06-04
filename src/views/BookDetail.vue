@@ -57,7 +57,7 @@
           <span class="mui-tab-label bottom-label">购物车</span>
         </a>
         <a class="mui-tab-item" href="javascript:;">
-          <button class="bottom-btn bgcolor-6">购买</button>
+          <button class="bottom-btn bgcolor-6" @click="buy">购买</button>
         </a>
         <a href="javascript:;" class="mui-tab-item">
           <button class="bottom-btn bgcolor-7">试读</button>
@@ -235,38 +235,11 @@
 </style>
 <script>
 import searchTop from "../components/Search.vue";
-// {
-//     "fixed_price":15999,
-//     "works_count":9,
-//     "price":3999,
-//     "cover_url":"https://img3.doubanio.com/view/ark_article_cover/retina/public/115410646.jpg?v=1557717069",
-//     "category_text":"图书 / 虚构",
-//     "agent":"新星出版社",
-//     "purchased":false,
-//     "promotion_end_time":"2019-05-21",
-//     "author":"埃勒里·奎因 埃勒里·奎因（Ellery Queen） 埃勒里·奎因（Ellery Queen）",
-//     "items_price":12992,
-//     "round_word_count":"约 1,536,000 字",
-//     "can_sale":true,
-//     "in_cart":false,
-//     "purchased_items_count":0,
-//     "average_rating":4.3,
-//     "promotion_url":"/promotion/74712/",
-//     "rating_cnt":78,
-//     "item_cover_urls":[
-//
-//     ],
-//     "promotion_remark":"限时特价",
-//     "title":"埃勒里·奎因侦探小说“国名系列”全集（套装共9册）",
-//     "promotion":true,
-//     "abstract":"侦探小说黄金时代的巅峰之作
-// “国名系列”最后一案
-// 埃勒里·奎因最艰难的抉择！
-// 魔术般的犯罪手法，一气呵成的推理过程，尽显逻辑之美！"
-// }
+import store from '@/store'
 
 // {"id":1,"book_id":108430815,"book_title":"摇滚侦探","url":"/ebook/108430815/","img_url":"https://img3.doubanio.com/view/ark_article_cover/retina/public/108430815.jpg?v=1552635833","kind_ids":"508,","kind_names":"悬疑,","book_author_ids":"/author/63740042/,","book_author_names":"杨林,","add_date":"2019-05-03T16:00:00.000Z"}
 export default {
+  store,
   data() {
     return {
       bookinfo: {
@@ -285,12 +258,12 @@ export default {
         abstract: "",
         publisher: "",
         rating_cnt: ""
-      }
+      },
+      msg:store.state.count
     };
   },
   created() {
     var book_id = this.$route.query.book_id;
-    console.log(book_id);
     var url = `http://laiycoder.com:3000/readbookapi/getById?bid=${book_id}`;
     this.axios.get(url).then(result => {
       if (result.data.code == 1) {
@@ -313,6 +286,10 @@ export default {
   methods: {
     goback() {
       console.log(window.location.hash);
+    },
+    buy(){
+    store.commit("increase");
+    console.log(this.msg);
     }
   },
   components: {

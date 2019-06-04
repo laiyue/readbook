@@ -9,16 +9,19 @@
         <div class="mui-scroll">
           <a
             class="mui-control-item"
+            :data-key="i"
             v-for="(item,i) of kindlist"
             :key="i"
             :data-kindname="item.kind_name"
             @click="changeTab"
-          >
-            {{item.kind_name}}
-            <div :class="line"></div>
-          </a>
+          >{{item.kind_name}}</a>
         </div>
       </div>
+      <div
+        id="sliderProgressBar"
+        :style="prossbarStyle"
+        class="mui-slider-progress-bar mui-col-xs-2"
+      ></div>
     </div>
     <mt-swipe class="mint-swipe" :auto="4000" :show-indicators="true">
       <mt-swipe-item>
@@ -87,26 +90,26 @@ export default {
     return {
       value: "",
       curKindName: "悬疑",
-      line:"",
+      prossbarStyle: "transform: translate3d(0px, 0px, 0px) translateZ(0px);",
       kindlist: [{ kind_name: "", kind_id: 0 }]
     };
   },
   components: {
     bookList,
     navBar,
-    //serializationList,
     shop,
     searchTop,
     bottom
   },
   created() {
-    this.getkind();
+          this.getkind();
   },
   methods: {
     getkind() {
       var url = "http://laiycoder.com:3000/readbookapi/getKindName";
       this.axios.get(url).then(res => {
-        if (res.data.msg && res.data.msg == "请登录") {
+        console.log(res.data);
+        if (res.data.msg && res.data.msg === "请登录") {
           this.$router.push({ path: "login" });
         } else {
           this.kindlist = res.data.data;
@@ -114,9 +117,10 @@ export default {
       });
     },
     changeTab(e) {
+      //console.log(e);
       this.curKindName = e.target.dataset.kindname;
-      console.log(e.target);
-      
+      var key = parseInt(e.target.dataset.key) * 125 + "%";
+      this.prossbarStyle = `transform: translate3d(${key}, 0, 0) translateZ(0px);`;
     }
   },
   mounted() {
@@ -148,8 +152,7 @@ a {
 .app-home .mui-segmented-control.mui-scroll-wrapper .mui-control-item {
   position: relative;
   display: inline-block;
-  width: auto;
-  padding: 0 1.2rem;
+  width: 12.5%;
   border: 0;
 }
 #slider {
@@ -232,17 +235,9 @@ a {
   margin: 3px;
   background-color: #fff;
 }
-.mui-slider
-  .line{
-  content: " ";
-  position: absolute;
-  height: 5px;
-  width: 4.8rem;
-  right: 0;
-  bottom: 0;
-  left:0;
-  background-color: red;
-  border: 1rpx solid red;
-}
+/* .mui-slider {
+  position: fixed;
+  top: 0;
+} */
 </style>
 

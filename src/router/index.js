@@ -10,38 +10,40 @@ import Shop from '@/views/Shop'
 import Bottom from '@/components/Bottom'
 import Editinfo from '@/views/Editinfo'
 import BookDetail from '@/views/BookDetail'
+import tabLeft from '@/components/tabLeft'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/Home',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: login
+    routes: [{
+            path: '/',
+            name: 'Home',
+            component: Home
+        },
+        {
+            path: '/Home',
+            name: 'Home',
+            component: Home
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: login
 
-    },
-    {
-      path: '/book',
-      name: 'BookList',
-      component: BookList
-    },
-    { path: "/SerializationList", name: "SerializationList", component: () => import("@/components/SerializationList") },
-    { path: "/navBar", name: "NavBar", component: NavBar },
-    { path: "/PersonalCenter", name: "PersonalCenter", component: PersonalCenter },
-    { path: "/Shop", name: "Shop", component: Shop },
-    { path: "/Bottom", name: "Bottom", component: Bottom },
-    { path: "/Editinfo", name: "Editinfo", component: Editinfo },
-    { path: "/BookDetail", name: "BookDetail", component: BookDetail }
-  ]
+        },
+        {
+            path: '/book',
+            name: 'BookList',
+            component: BookList
+        },
+        { path: "/SerializationList", name: "SerializationList", component: () =>
+                import ("@/components/SerializationList") },
+        { path: "/navBar", name: "NavBar", component: NavBar },
+        { path: "/PersonalCenter", name: "PersonalCenter", component: PersonalCenter },
+        { path: "/Shop", name: "Shop", component: Shop },
+        { path: "/Bottom", name: "Bottom", component: Bottom },
+        { path: "/Editinfo", name: "Editinfo", component: Editinfo },
+        { path: "/BookDetail", name: "BookDetail", component: BookDetail },
+        { path: "/TabLeft", name: "TabLeft", component: tabLeft }
+    ]
 })
