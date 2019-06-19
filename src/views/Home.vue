@@ -6,7 +6,7 @@
       <div
         class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"
       >
-        <div class="mui-scroll">
+        <div class="mui-scroll" :style="navStyle" ref="nav">
           <a
             class="mui-control-item"
             :data-key="i"
@@ -20,6 +20,7 @@
       <div
         id="sliderProgressBar"
         :style="prossbarStyle"
+        style="width:70px;"
         class="mui-slider-progress-bar mui-col-xs-2"
       ></div>
     </div>
@@ -89,6 +90,8 @@ export default {
   data() {
     return {
       value: "",
+      num: 0,
+      navStyle: "transform: translate3d(0px, 0px, 0px) translateZ(0px);",
       curKindName: "悬疑",
       prossbarStyle: "transform: translate3d(0px, 0px, 0px) translateZ(0px);",
       kindlist: [{ kind_name: "", kind_id: 0 }]
@@ -102,13 +105,13 @@ export default {
     bottom
   },
   created() {
-          this.getkind();
+    this.getkind();
   },
   methods: {
     getkind() {
-      var url = "http://laiycoder.com:3000/readbookapi/getKindName";
+      var url = this.$router.baseurl + "/readbookapi/getKindName";
       this.axios.get(url).then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.msg && res.data.msg === "请登录") {
           this.$router.push({ path: "login" });
         } else {
@@ -117,18 +120,29 @@ export default {
       });
     },
     changeTab(e) {
-      //console.log(e);
+      let count = this.$refs.nav.children.length;
       this.curKindName = e.target.dataset.kindname;
-      var key = parseInt(e.target.dataset.key) * 125 + "%";
-      this.prossbarStyle = `transform: translate3d(${key}, 0, 0) translateZ(0px);`;
+      this.num = parseInt(e.target.dataset.key);
+      let w = parseInt(e.target.clientWidth);
+      var sw = 0;
+      if (this.num > 2 && this.num < count - 2) {
+        var navW = -((this.num - 2) * w);
+        sw = w * 2;
+        this.navStyle = `transform: translate3d(${navW}px, 0, 0) translateZ(0px);transition:transform 1s;`;
+        this.prossbarStyle = `transform: translate3d(${sw}px, 0, 0) translateZ(0px);transform 3s;`;
+      } else if (this.num > count - 3) {
+        sw += (count - this.num);
+        sw *= w;
+        console.log(sw);
+        this.prossbarStyle = `transform: translate3d(${sw}px, 0, 0) translateZ(0px);transform 3s;`;
+      } else {
+        sw = w * this.num;
+        this.navStyle = `transform: translate3d(${navW}px, 0, 0) translateZ(0px);transition:transform 1s;`;
+        this.prossbarStyle = `transform: translate3d(${sw}px, 0, 0) translateZ(0px);transform 3s;`;
+      }
     }
   },
-  mounted() {
-    mui.init();
-    mui(".mui-scroll-wrapper").scroll({
-      deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
-    });
-  }
+  mounted() {}
 };
 </script>
 
@@ -148,11 +162,14 @@ a {
   padding-bottom: 50px;
   /* font-family:"汉仪旗黑"; */
 }
-
+/* .app-home .mui-scroll{
+  width: 360px;
+} */
 .app-home .mui-segmented-control.mui-scroll-wrapper .mui-control-item {
   position: relative;
   display: inline-block;
-  width: 12.5%;
+  width: 70px;
+  padding: 0;
   border: 0;
 }
 #slider {

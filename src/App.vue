@@ -44,6 +44,7 @@ a {
 </style>
 <script>
 import navBar from "./components/NavBar.vue";
+
 // import homeView from "./views/Home.vue";
 // import personalCenter from "./views/PersonalCenter.vue";
 // import shopView from "./views/Shop.vue";
@@ -54,6 +55,9 @@ export default {
     };
   },
   created() {
+    //http://laiycoder.com:3000
+    this.$router.baseurl='http://laiycoder.com:3000';
+    //this.$router.baseurl='http://localhost:3000';
     mui.init({
       swipeBack: true //启用右滑关闭功能
     });

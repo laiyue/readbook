@@ -6,7 +6,7 @@
         <span class="mui-tab-label">原创</span>
       </a>
       <a class="mui-tab-item" @click="gotoPage"  >
-        <span data-url="home" class="mui-icon mui-icon-extra mui-icon-extra-share"></span>
+        <span data-url="topic" class="mui-icon mui-icon-extra mui-icon-extra-share"></span>
         <span class="mui-tab-label">动态</span>
       </a>
       <a class="mui-tab-item" @click="gotoPage"  href="javascript:;">
@@ -18,7 +18,7 @@
         <span class="mui-tab-label">我的</span>
       </a>
       <a href="javascript:;" @click="gotoPage"  class="mui-tab-item">
-        <span data-url="PersonalCenter" class="mui-icon mui-icon-gear"></span>
+        <span data-url="ReadBookDetail" class="mui-icon mui-icon-gear"></span>
         <span class="mui-tab-label">本地</span>
       </a>
     </nav>

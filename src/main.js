@@ -13,10 +13,6 @@ import './assets/lib/mui/css/style.css'
 // 导入 MUI 的样式表，扩展图标样式，购物车图标
 // 还需要加载图标字体文件
 import './assets/lib/mui/css/icons-extra.css'
-//import mui from './lib/mui/js/mui.min.js'
-// import './lib/mui/js/mui.enterfocus.js'
-// import './lib/mui/js/app.js'
-// import './lib/mui/js/mui.js'
 Vue.config.productionTip = false
     //Vue.prototype.$mui = mui;
     //让axios的请求携带验证信息到服务端

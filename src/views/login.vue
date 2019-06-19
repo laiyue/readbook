@@ -44,6 +44,7 @@
 
 <script>
 import { Toast } from "mint-ui";
+
 export default {
   data() {
     return {
@@ -56,8 +57,9 @@ export default {
   },
   methods: {
     login() {
+      console.log(this.$router.baseurl);
       if (this.nickname != "" && this.pwd != "") {
-        var url = `http://laiycoder.com:3000/readbookapi/login?nickname=${
+        var url = `${this.$router.baseurl}/readbookapi/login?nickname=${
           this.nickname
         }&pwd=${this.pwd}`;
         this.axios(url).then(res => {

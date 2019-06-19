@@ -105,22 +105,12 @@ export default {
   methods: {
     getbooklist() {
       this.curKindName = this.kindname;
-      var url = `http://laiycoder.com:3000/readbookapi/getBykindname?kindname=${
+      var url = `${this.$router.baseurl}/readbookapi/getBykindname?kindname=${
         this.curKindName
       }&pageindex=${this.pageindex}&pagesize=4`;
       this.axios.get(url).then(res => {
         if (this.list.length > 1 && this.pageindex > 1) {
-          //Toast("加载中...");
           this.list = this.list.concat(res.data.data);
-          //var tempurl = "https://images.weserv.nl/?url=";
-          // for (let i = 0; i < this.list.length; i++) {
-          //   if (
-          //     this.list[i]["img_url"].toString().indexOf("images.weserv.nl") ==
-          //     -1
-          //   ) {
-          //     this.list[i]["img_url"] = tempurl + this.list[i]["img_url"];
-          //   }
-          // }
         } else {
           this.list = res.data.data;
         }

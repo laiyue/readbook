@@ -109,7 +109,7 @@ export default {
   },
   methods: {
     loginout() {
-      this.axios("http://laiycoder.com:3000/readbookapi/loginout").then(res => {
+      this.axios(this.$router.baseurl+"/readbookapi/loginout").then(res => {
          this.$router.push({path:"/login"});
       });
     },
@@ -124,12 +124,12 @@ export default {
           "Content-Type": "multipart/form-data"
         }
       };
-      let uploadUrl = "http://laiycoder.com:3000/upload/uploadFiles";
+      let uploadUrl = this.$router.baseurl+"/upload/uploadFiles";
       this.axios
         .post(uploadUrl, fd, config)
         .then(res => {
           if(res.data.head_img){
-            this.head_img="http://laiycoder.com:3000"+res.data.head_img.replace("/public","");
+            this.head_img=this.$router.baseurl+res.data.head_img.replace("/public","");
             //console.log(this.head_img);
           }
         })

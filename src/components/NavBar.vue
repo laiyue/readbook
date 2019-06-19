@@ -1,6 +1,6 @@
 <template>
   <div class="app-navbar">
-    <div id="slider" class="mui-slider">
+    <div id="slider" class="mui-slider mui-fullscreen">
       <div
         class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"
       >
@@ -26,25 +26,29 @@
 * {
   touch-action: pan-y;
 }
-.app-navbar{
+.app-navbar {
   background: #fff;
 }
 .app-navbar .mui-segmented-control.mui-scroll-wrapper .mui-control-item {
-    display: inline-block;
-    width: auto;
-    padding: 0 15px;
-    border: 0;
+  display: inline-block;
+  width: auto;
+  padding: 0 15px;
+  border: 0;
 }
 </style>
 <script>
 export default {
   data() {
     return {};
-  },
+  }
+  ,
   mounted() {
     mui.init();
     mui(".mui-scroll-wrapper").scroll({
-      deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+      //deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+      bounce: false,
+      indicators: true, //是否显示滚动条
+      deceleration: 0.0005 
     });
   }
 };

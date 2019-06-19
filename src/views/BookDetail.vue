@@ -264,7 +264,7 @@ export default {
   },
   created() {
     var book_id = this.$route.query.book_id;
-    var url = `http://laiycoder.com:3000/readbookapi/getById?bid=${book_id}`;
+    var url = `${this.$router.baseurl}/readbookapi/getById?bid=${book_id}`;
     this.axios.get(url).then(result => {
       if (result.data.code == 1) {
         var obj = result.data.data[0];

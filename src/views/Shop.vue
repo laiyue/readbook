@@ -356,7 +356,7 @@ export default {
   },
   created() {
     //console.log(1);
-    let url = `http://laiycoder.com:3000/booklist/booklist? this.pageindex}&pagesize=${
+    let url = `${this.$router.baseurl}/booklist/booklist? this.pageindex}&pagesize=${
       this.pagesize
     }`;
     this.axios.get(url).then(res => {
@@ -368,7 +368,7 @@ export default {
 
       //console.log(this.booklist);
     });
-    let url02 = `http://laiycoder.com:3000/booklist/booklist?pageindex=2&pagesize=${
+    let url02 = `${this.$router.baseurl}/booklist/booklist?pageindex=2&pagesize=${
       this.pagesize
     }`;
     this.axios.get(url02).then(res => {
@@ -378,7 +378,7 @@ export default {
         this.booklist2 = res.data.data;
       }
     });
-    let url03 = `http://laiycoder.com:3000/booklist/booklist?pageindex=3&pagesize=${
+    let url03 = `${this.$router.baseurl}/booklist/booklist?pageindex=3&pagesize=${
       this.pagesize
     }`;
     this.axios.get(url03).then(res => {
