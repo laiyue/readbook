@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Home from '@/views/home'
 import login from '@/views/login'
 import BookList from '@/components/BookList'
@@ -13,6 +12,7 @@ import BookDetail from '@/views/BookDetail'
 import tabLeft from '@/components/tabLeft'
 import topic from '@/views/topic'
 import ReadBookDetail from '@/views/ReadBookDetail'
+import Recommand from '@/components/recommand'
 
 Vue.use(Router)
 
@@ -47,6 +47,7 @@ export default new Router({
         { path: "/BookDetail", name: "BookDetail", component: BookDetail },
         { path: "/TabLeft", name: "TabLeft", component: tabLeft },
         { path: "/topic", name: "topic", component: topic },
-        { path: '/ReadBookDetail', name: 'ReadBookDetail', component: ReadBookDetail }
+        { path: '/ReadBookDetail', name: 'ReadBookDetail', component: ReadBookDetail },
+        { path: '/Recommand', name: "Recommand", component: Recommand }
     ]
 })

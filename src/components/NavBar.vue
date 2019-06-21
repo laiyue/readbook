@@ -1,6 +1,6 @@
 <template>
   <div class="app-navbar">
-    <div id="slider" class="mui-slider mui-fullscreen">
+    <div class="mui-slider mui-fullscreen">
       <div
         class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"
       >
@@ -27,13 +27,18 @@
   touch-action: pan-y;
 }
 .app-navbar {
-  background: #fff;
+  background: #F7FBFA;
+}
+
+.app-navbar .mui-slider{
+  background: #F7FBFA;
 }
 .app-navbar .mui-segmented-control.mui-scroll-wrapper .mui-control-item {
   display: inline-block;
   width: auto;
   padding: 0 15px;
   border: 0;
+  background: #F7FBFA;
 }
 </style>
 <script>

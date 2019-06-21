@@ -16,13 +16,13 @@
 </template>
 <style>
 .component-search .mui-search {
-  background-color: #fff;
+  background-color: #F7FBFA;
 }
 .component-search .mui-input-row.mui-search {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
-  background-color: #fff;
+  background-color: #F7FBFA;
 }
 
 .component-search .mui-search .search-title {
@@ -33,7 +33,7 @@
   font-size: 1.2rem;
   height: 2rem;
   margin: 0.5rem 1rem;
-  background-color: #fff;
+  background-color: #F7FBFA;
   font-family: "Avenir";
   font-weight: 1000;
 }

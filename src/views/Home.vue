@@ -2,7 +2,7 @@
   <div class="app-home">
     <search-top title="原创"></search-top>
     <!-- <nav-bar></nav-bar> -->
-    <div id="slider" class="mui-slider">
+    <div id="slider" class="mui-slider" v-scroll="navScroll">
       <div
         class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"
       >
@@ -73,19 +73,19 @@
         </li>
       </ul>
     </div>
-    <book-list :kindname="curKindName"></book-list>
+    <recommend-component></recommend-component>
     <bottom></bottom>
-    <!-- <serialization-list></serialization-list> -->
   </div>
 </template>
 
 <script>
-import bookList from "../components/BookList.vue";
+//import bookList from "../components/BookList.vue";
 import navBar from "../components/NavBar.vue";
-//import serializationList from "../components/SerializationList.vue";
 import shop from "../views/Shop.vue";
 import searchTop from "../components/Search.vue";
 import bottom from "../components/Bottom.vue";
+import recommendComponent from "../components/recommand.vue";
+
 export default {
   data() {
     return {
@@ -98,20 +98,21 @@ export default {
     };
   },
   components: {
-    bookList,
+    // bookList,
     navBar,
     shop,
     searchTop,
-    bottom
+    bottom,
+    recommendComponent
   },
   created() {
     this.getkind();
+    //  mui.init();
   },
   methods: {
     getkind() {
       var url = this.$router.baseurl + "/readbookapi/getKindName";
       this.axios.get(url).then(res => {
-        // console.log(res.data);
         if (res.data.msg && res.data.msg === "请登录") {
           this.$router.push({ path: "login" });
         } else {
@@ -130,16 +131,28 @@ export default {
         sw = w * 2;
         this.navStyle = `transform: translate3d(${navW}px, 0, 0) translateZ(0px);transition:transform 1s;`;
         this.prossbarStyle = `transform: translate3d(${sw}px, 0, 0) translateZ(0px);transform 3s;`;
-      } else if (this.num > count - 3) {
-        sw += (count - this.num);
-        sw *= w;
-        console.log(sw);
+      } else if (this.num >= count - 2) {
+        //距左两个li 的width=70px,当前li=2，li计数从0开始，所以+1
+        if (this.num + 1 < count) {
+          sw = (2 + (count - (this.num + 1))) * w;
+        } else {
+          sw = 4 * 70;
+        }
         this.prossbarStyle = `transform: translate3d(${sw}px, 0, 0) translateZ(0px);transform 3s;`;
       } else {
+        console.log(this.num);
         sw = w * this.num;
         this.navStyle = `transform: translate3d(${navW}px, 0, 0) translateZ(0px);transition:transform 1s;`;
         this.prossbarStyle = `transform: translate3d(${sw}px, 0, 0) translateZ(0px);transform 3s;`;
       }
+    },
+    navScroll(evt, el) {
+      if (window.scrollY > 42) {
+        el.style = "position: fixed;top:0px;z-index:100;";
+      } else if (window.scrollY < 42) {
+        el.style = "position:relative;";
+      }
+      //return window.scrollY > 100
     }
   },
   mounted() {}
@@ -160,8 +173,10 @@ a {
 .app-home {
   background-color: #ebf0f3;
   padding-bottom: 50px;
+
   /* font-family:"汉仪旗黑"; */
 }
+
 /* .app-home .mui-scroll{
   width: 360px;
 } */
@@ -171,18 +186,19 @@ a {
   width: 70px;
   padding: 0;
   border: 0;
+  background: #f7fbfa;
 }
-#slider {
-  background: #fff;
-}
-.app-home .mui-table-view:before {
-  height: 0;
-  top: 0;
+/* #slider {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  width: 100%;
+} */
+
+.app-home .mui-table-view {
+  background: #f7fbfa;
 }
 
-.app-home .mui-table-view:after {
-  height: 0;
-}
 .app-home .mint-swipe {
   /* margin-top: 10px; */
   height: 100px;
@@ -252,9 +268,5 @@ a {
   margin: 3px;
   background-color: #fff;
 }
-/* .mui-slider {
-  position: fixed;
-  top: 0;
-} */
 </style>
 
