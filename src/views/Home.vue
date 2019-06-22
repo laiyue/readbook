@@ -6,7 +6,7 @@
       <div
         class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"
       >
-        <div class="mui-scroll" :style="navStyle" ref="nav">
+        <div class="mui-scroll" ref="nav">
           <a
             class="mui-control-item"
             :data-key="i"
@@ -17,12 +17,12 @@
           >{{item.kind_name}}</a>
         </div>
       </div>
-      <div
+      <!-- <div
         id="sliderProgressBar"
         :style="prossbarStyle"
         style="width:70px;"
         class="mui-slider-progress-bar mui-col-xs-2"
-      ></div>
+      ></div>-->
     </div>
     <mt-swipe class="mint-swipe" :auto="4000" :show-indicators="true">
       <mt-swipe-item>
@@ -121,30 +121,7 @@ export default {
       });
     },
     changeTab(e) {
-      let count = this.$refs.nav.children.length;
       this.curKindName = e.target.dataset.kindname;
-      this.num = parseInt(e.target.dataset.key);
-      let w = parseInt(e.target.clientWidth);
-      var sw = 0;
-      if (this.num > 2 && this.num < count - 2) {
-        var navW = -((this.num - 2) * w);
-        sw = w * 2;
-        this.navStyle = `transform: translate3d(${navW}px, 0, 0) translateZ(0px);transition:transform 1s;`;
-        this.prossbarStyle = `transform: translate3d(${sw}px, 0, 0) translateZ(0px);transform 3s;`;
-      } else if (this.num >= count - 2) {
-        //距左两个li 的width=70px,当前li=2，li计数从0开始，所以+1
-        if (this.num + 1 < count) {
-          sw = (2 + (count - (this.num + 1))) * w;
-        } else {
-          sw = 4 * 70;
-        }
-        this.prossbarStyle = `transform: translate3d(${sw}px, 0, 0) translateZ(0px);transform 3s;`;
-      } else {
-        console.log(this.num);
-        sw = w * this.num;
-        this.navStyle = `transform: translate3d(${navW}px, 0, 0) translateZ(0px);transition:transform 1s;`;
-        this.prossbarStyle = `transform: translate3d(${sw}px, 0, 0) translateZ(0px);transform 3s;`;
-      }
     },
     navScroll(evt, el) {
       if (window.scrollY > 42) {
@@ -155,7 +132,12 @@ export default {
       //return window.scrollY > 100
     }
   },
-  mounted() {}
+  mounted() {
+    mui.init();
+    mui(".mui-scroll-wrapper").scroll({
+      deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+    });
+  }
 };
 </script>
 
@@ -173,13 +155,8 @@ a {
 .app-home {
   background-color: #ebf0f3;
   padding-bottom: 50px;
-
-  /* font-family:"汉仪旗黑"; */
 }
 
-/* .app-home .mui-scroll{
-  width: 360px;
-} */
 .app-home .mui-segmented-control.mui-scroll-wrapper .mui-control-item {
   position: relative;
   display: inline-block;
@@ -188,12 +165,25 @@ a {
   border: 0;
   background: #f7fbfa;
 }
-/* #slider {
+.app-home
+  .mui-segmented-control.mui-scroll-wrapper
+  .mui-control-item
+  .mui-active {
   position: relative;
-  z-index: 1;
-  overflow: hidden;
-  width: 100%;
-} */
+}
+.app-home
+  .mui-segmented-control.mui-scroll-wrapper
+  .mui-control-item.mui-active::after {
+  content: "";
+  height: px;
+  width: 70px;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  bottom: 0;
+  background-color: #007aff;
+  border: 1rpx solid #007aff;
+}
 
 .app-home .mui-table-view {
   background: #f7fbfa;

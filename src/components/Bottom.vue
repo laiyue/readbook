@@ -1,7 +1,7 @@
 <template>
   <div class="component-bottom">
    <nav class="mui-bar mui-bar-tab">
-      <a class="mui-tab-item mui-active" @click="gotoPage" href="javascript:;">
+      <a class="mui-tab-item" @click="gotoPage" href="javascript:;">
         <span data-url="home" class="mui-icon mui-icon-extra mui-icon-extra-lamp"></span>
         <span class="mui-tab-label">原创</span>
       </a>

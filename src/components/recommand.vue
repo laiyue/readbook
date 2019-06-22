@@ -265,7 +265,8 @@ export default {
   }
 };
 </script>
-<style>
+
+<style scoped>
 
 .component-recommand {
   height: auto;
@@ -347,14 +348,14 @@ export default {
   justify-content: space-between;
   font-size: 14px;
 }
-.mui-table-view .mui-media-object {
+.component-recommand .mui-table-view .mui-media-object {
   line-height: 100px;
   max-width: 65px;
   height: 100px;
   margin: 10px;
 }
 
-.mui-table-view .mui-media,
+.component-recommand .mui-table-view .mui-media,
 .mui-table-view .mui-media-body {
   overflow: hidden;
   text-align: left;
@@ -367,13 +368,13 @@ export default {
   color: #000;
   /* text-overflow: ellipsis; */
 }
-.bgcolorred {
+.component-recommand .bgcolorred {
   background: crimson;
   color: #fff;
   padding: 2px 3px;
   font-size: 0.75rem;
 }
-.mui-table-view:before {
+.component-recommand .mui-table-view:before {
   position: absolute;
   top: 0;
   right: 0;
@@ -384,7 +385,7 @@ export default {
   transform: scaleY(0.5);
   background-color: #c8c7cc;
 }
-.mui-table-view-cell:after {
+.component-recommand .mui-table-view-cell:after {
   position: absolute;
   right: 0;
   bottom: 0;
