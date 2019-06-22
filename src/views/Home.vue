@@ -258,5 +258,22 @@ a {
   margin: 3px;
   background-color: #fff;
 }
+.app-home .mui-bar {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: 44px;
+    padding-right: 0px;
+    padding-left: 0px;
+    border-bottom: 0;
+    background-color: #f7f7f7;
+    box-shadow: none;
+    -webkit-box-shadow:none;
+    /* -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
+    /* box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
 </style>
 

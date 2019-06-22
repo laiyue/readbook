@@ -1,12 +1,5 @@
 <template>
   <div class="app-readbookdetail">
-    <header id="header" class="mui-bar mui-bar-transparent">
-      <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-      <h1 class="mui-title">
-        <span class="mui-icon mui-icon-extra mui-icon-extra-share"></span>
-        <span class="mui-icon mui-icon-more"></span>
-      </h1>
-    </header>
     <div class="readbookdetail-content">
       <!--静态图片-->
       <img id="img1" src="../assets/images/qingxike.jpg">
@@ -54,13 +47,35 @@
         </ul>
       </div>
     </div>
+
+    <nav class="mui-bar mui-bar-tab">
+      <a class="mui-tab-item" href="#">
+        <span class="mui-icon mui-icon-chatbubble"></span>
+        <span class="mui-tab-label bottom-label">评论</span>
+      </a>
+      <a class="mui-tab-item">
+        <span class="mui-icon mui-icon-extra mui-icon-extra-gift"></span>
+        <span class="mui-tab-label bottom-label">送花</span>
+      </a>
+      <a class="mui-tab-item">
+        <span class="mui-icon mui-icon-pulldown"></span>
+        <span class="mui-tab-label bottom-label">下载</span>
+      </a>
+      <a class="mui-tab-item bgcolor-6" href="javascript:;">
+        订阅
+        <!-- <button class="bottom-btn bgcolor-6">订阅</button> -->
+      </a>
+      <a href="javascript:;" class="mui-tab-item bgcolor-7">
+        阅读
+        <!-- <button class="bottom-btn bgcolor-7">阅读</button> -->
+      </a>
+    </nav>
   </div>
 </template>
 <style scoped>
-.app-readbookdetail .mui-title {
-  width: 85%;
-  text-align: right;
-}
+/* .app-readbookdetail{
+  padding-bottom: 58px;
+} */
 .book-author p {
   font-size: 0.75rem;
   margin-top: 0;
@@ -77,8 +92,8 @@
   height: 160px;
 }
 .filter {
-  margin-left: -20px;
-  width: 130%;
+  /* margin-left: -20px; */
+  width: 100%;
   height: 80px;
   filter: blur(10px);
   position: absolute;
@@ -91,8 +106,8 @@
 }
 .book-title {
   position: absolute;
-  width: 100%;
   top: 130px;
+  padding-bottom: 58px;
 }
 .book-title .book-author {
   background-color: #f7fbfa;
@@ -184,7 +199,6 @@
   height: 30px;
   padding: 10px;
   color: #000;
-
 }
 
 .bgcolor-orange {
@@ -192,6 +206,50 @@
   color: #fff;
   padding: 2px 3px;
   font-size: 0.75rem;
+}
+.bgcolor-6 {
+  background-color: #7cd4be;
+  color: #fff;
+}
+.bgcolor-7 {
+  background-color: #5cc9ac;
+  color: #fff;
+}
+.app-readbookdetail .mui-bar-tab .mui-tab-item:nth-child(4),
+ .app-readbookdetail .mui-bar-tab .mui-tab-item:nth-child(5){
+    display: table-cell;
+    overflow: hidden;
+    width: 5px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.app-readbookdetail .mui-bar .mui-icon {
+  font-size: 18px;
+  position: relative;
+  z-index: 20;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.app-readbookdetail .mui-bar {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: 44px;
+    padding-right: 0px;
+    padding-left: 0px;
+    border-bottom: 0;
+    background-color: #f7f7f7;
+    box-shadow: none;
+    -webkit-box-shadow:none;
+    /* -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
+    /* box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 </style>
 <script>
