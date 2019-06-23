@@ -118,15 +118,17 @@
   font-size: 1.2rem;
 }
 .book-intro .book-left p {
-  line-height: 20px;
-  font-size: 1rem;
+  line-height: 22px;
+  height: 22px;
+  font-size: 0.875rem;
   margin: 0;
   text-align: left;
 }
 .book-intro .book-right img {
-  width: 5rem;
-  height: 7.2rem;
+  width: 5.5rem;
+  height: 8.5rem;
   margin: 5px;
+
 }
 .app-book-detail .message {
   padding: 0.5rem 1rem;
@@ -166,7 +168,7 @@
   padding: 0.5rem 1rem;
 }
 .book-intro-detail .book-intro-text {
-  font-size: 0.7rem;
+  font-size: 0.875rem;
   color: black;
   padding: 0.5rem 1rem;
   text-align: left;
@@ -289,7 +291,6 @@ export default {
     },
     buy(){
     store.commit("increase");
-    console.log(this.msg);
     }
   },
   components: {

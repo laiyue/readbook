@@ -6,7 +6,7 @@
         <span class="mui-tab-label">原创</span>
       </a>
       <a class="mui-tab-item" @click="gotoPage"  >
-        <span data-url="topic" class="mui-icon mui-icon-extra mui-icon-extra-share"></span>
+        <span data-url="ReakDetail" class="mui-icon mui-icon-extra mui-icon-extra-share"></span>
         <span class="mui-tab-label">动态</span>
       </a>
       <a class="mui-tab-item" @click="gotoPage"  href="javascript:;">
@@ -58,7 +58,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      url:""
+    };
   },
   methods: {
     gotoPage(e) {

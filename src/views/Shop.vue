@@ -350,7 +350,7 @@
   .mui-segmented-control.mui-segmented-control-inverted
   .mui-control-item.mui-active::after {
   content: "";
-  height: px;
+  /* height: px; */
   width: 115px;
   position: absolute;
   top: 35px;

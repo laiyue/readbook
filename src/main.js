@@ -18,15 +18,18 @@ Vue.config.productionTip = false
     //让axios的请求携带验证信息到服务端
 axios.defaults.withCredentials = true;
 Vue.prototype.axios = axios;
-import MintUI from "mint-ui";
+// import MintUI from "mint-ui";
+import { Swipe, SwipeItem } from 'mint-ui'
 import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload, {
-    preLoad: 1.3,
-    // error: 'dist/error.png',
-    // loading: 'dist/loading.gif',
-    attempt: 1
-})
-Vue.use(MintUI);
+        preLoad: 1.3,
+        // error: 'dist/error.png',
+        // loading: 'dist/loading.gif',
+        attempt: 1
+    })
+    // Vue.use(MintUI);
+Vue.component(Swipe.name, Swipe)
+Vue.component(SwipeItem.name, SwipeItem)
 
 Vue.directive('scroll', {
     inserted(el, binding) {

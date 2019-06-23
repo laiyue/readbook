@@ -29,7 +29,7 @@ export default new Router({
 
         },
         {
-            path: '/book',
+            path: '/book/:kindname',
             name: 'BookList',
             component: BookList
         },
@@ -47,7 +47,7 @@ export default new Router({
         { path: "/BookDetail", name: "BookDetail", component: BookDetail },
         { path: "/TabLeft", name: "TabLeft", component: tabLeft },
         { path: "/topic", name: "topic", component: topic },
-        { path: '/ReadBookDetail', name: 'ReadBookDetail', component: ReadBookDetail },
+        { path: '/ReadBookDetail/:bookid', name: 'ReadBookDetail', component: ReadBookDetail },
         { path: '/Recommand', name: "Recommand", component: Recommand }
     ]
 })

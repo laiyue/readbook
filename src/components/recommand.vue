@@ -7,156 +7,94 @@
       <div class="mui-slider-group mui-slider-loop">
         <div class="mui-slider-item mui-slider-item-duplicate">
           <ul class="mui-table-view">
-            <li class="mui-table-view-cell mui-media">
-              <a href="javascript:;">
-                <img class="mui-media-object mui-pull-left" src="../assets/images/yuantiao.jpg">
+            <li class="mui-table-view-cell mui-media" v-for="(item,i) of recommend_booklist" :key="i" >
+             <router-link :to="'/ReadBookDetail/'+item.id">
+                <img class="mui-media-object mui-pull-left" :src="item.img_url">
                 <div class="mui-media-body">
                   <p>
-                    <b>幸福</b>
+                    <b class="mui-ellipsis">{{item.book_title}}</b>
                     <br>
-                    <span class="font12">肖尔布拉克</span>
+                    <span class="mui-ellipsis font12">{{item.book_author_names.replace(',','')}}</span>
                   </p>
-                  <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+                  <p class="mui-ellipsis">{{item.abstract}}</p>
                   <p class>
-                    <span class="bgcolorred">女性成长</span>&nbsp;
-                    <span class="bgcolorred">家庭故事</span>
+
+                    <span  v-for="(kind,j) of item.kind_names.substring(0,item.kind_names.lastIndexOf(',')).split(',')"
+                    :key="j" class="bgcolorred"> {{kind}} </span>&nbsp;
+                    <!-- <span class="bgcolorred">家庭故事</span> -->
                   </p>
                 </div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media">
-              <a href="javascript:;">
-                <img class="mui-media-object mui-pull-left" src="../assets/images/yuantiao.jpg">
-                <div class="mui-media-body">
-                  <p>
-                    <b>幸福</b>
-                    <br>
-                    <span class="font12">肖尔布拉克</span>
-                  </p>
-                  <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-                  <p class>
-                    <span class="bgcolorred">女性成长</span> &nbsp;
-                    <span class="bgcolorred">家庭故事</span>
-                  </p>
-                </div>
-              </a>
+             </router-link>
             </li>
           </ul>
         </div>
         <div class="mui-slider-item">
           <ul class="mui-table-view">
-            <li class="mui-table-view-cell mui-media">
-              <a href="javascript:;">
-                <img class="mui-media-object mui-pull-left" src="../assets/images/yuantiao.jpg">
+             <li class="mui-table-view-cell mui-media" v-for="(item,i) of recommend_booklist" :key="i" >
+             <router-link :to="'/ReadBookDetail/'+item.id">
+                <img class="mui-media-object mui-pull-left" :src="item.img_url">
                 <div class="mui-media-body">
                   <p>
-                    <b>幸福</b>
+                    <b class="mui-ellipsis" >{{item.book_title}}</b>
                     <br>
-                    <span class="font12">肖尔布拉克</span>
+                    <span class="mui-ellipsis font12">{{item.book_author_names.replace(',','')}}</span>
                   </p>
-
-                  <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+                  <p class="mui-ellipsis">{{item.abstract}}</p>
                   <p class>
-                    <span class="bgcolorred">女性成长</span> &nbsp;
-                    <span class="bgcolorred">家庭故事</span>
+                    <!-- <span class="bgcolorred">女性成长</span>&nbsp;
+                    <span class="bgcolorred">家庭故事</span> -->
+                    <span  v-for="(kind,j) of item.kind_names.substring(0,item.kind_names.lastIndexOf(',')).split(',')"
+                    :key="j" class="bgcolorred"> {{kind}} </span>&nbsp;
                   </p>
                 </div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media">
-              <a href="javascript:;">
-                <img class="mui-media-object mui-pull-left" src="../assets/images/yuantiao.jpg">
-                <div class="mui-media-body">
-                  <p>
-                    <b>幸福</b>
-                    <br>
-                    <span class="font12">肖尔布拉克</span>
-                  </p>
-                  <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-                  <p class>
-                    <span class="bgcolorred">女性成长</span>&nbsp;
-                    <span class="bgcolorred">家庭故事</span>
-                  </p>
-                </div>
-              </a>
+             </router-link>
             </li>
           </ul>
         </div>
         <div class="mui-slider-item">
           <ul class="mui-table-view">
-            <li class="mui-table-view-cell mui-media">
-              <a href="javascript:;">
-                <img class="mui-media-object mui-pull-left" src="../assets/images/yuantiao.jpg">
+             <li class="mui-table-view-cell mui-media" v-for="(item,i) of recommend_booklist" :key="i" >
+              <router-link :to="'/ReadBookDetail/'+item.id">
+                <img class="mui-media-object mui-pull-left" :src="item.img_url">
                 <div class="mui-media-body">
                   <p>
-                    <b>幸福</b>
+                    <b class="mui-ellipsis" >{{item.book_title}}</b>
                     <br>
-                    <span class="font12">肖尔布拉克</span>
+                    <span class="mui-ellipsis font12">{{item.book_author_names.replace(',','')}}</span>
                   </p>
-
-                  <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+                  <p class="mui-ellipsis">{{item.abstract}}</p>
                   <p class>
-                    <span class="bgcolorred">女性成长</span>&nbsp;
-                    <span class="bgcolorred">家庭故事</span>
+                    <!-- <span class="bgcolorred">女性成长</span>&nbsp;
+                    <span class="bgcolorred">家庭故事</span> -->
+                    <span  v-for="(kind,j) of item.kind_names.substring(0,item.kind_names.lastIndexOf(',')).split(',')"
+                    :key="j" class="bgcolorred"> {{kind}} </span>&nbsp;
                   </p>
                 </div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media">
-              <a href="javascript:;">
-                <img class="mui-media-object mui-pull-left" src="../assets/images/yuantiao.jpg">
-                <div class="mui-media-body">
-                  <p>
-                    <b>幸福</b>
-                    <br>
-                    <span class="font12">肖尔布拉克</span>
-                  </p>
-                  <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-                  <p class>
-                    <span class="bgcolorred">女性成长</span>&nbsp;
-                    <span class="bgcolorred">家庭故事</span>
-                  </p>
-                </div>
-              </a>
+              </router-link>
             </li>
           </ul>
         </div>
         <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一个图文表格) -->
         <div class="mui-slider-item mui-slider-item-duplicate">
           <ul class="mui-table-view">
-            <li class="mui-table-view-cell mui-media">
-              <a href="javascript:;">
-                <img class="mui-media-object mui-pull-left" src="../assets/images/yuantiao.jpg">
+             <li class="mui-table-view-cell mui-media" v-for="(item,i) of recommend_booklist" :key="i" >
+             <router-link :to="'/ReadBookDetail/'+item.id">
+                <img class="mui-media-object mui-pull-left" :src="item.img_url">
                 <div class="mui-media-body">
                   <p>
-                    <b>幸福</b>
+                    <b class="mui-ellipsis" >{{item.book_title}}</b>
                     <br>
-                    <span class="font12">肖尔布拉克</span>
+                    <span class="mui-ellipsis font12">{{item.book_author_names.replace(',','')}}</span>
                   </p>
-                  <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+                  <p class="mui-ellipsis">{{item.abstract}}</p>
                   <p class>
-                    <span class="bgcolorred">女性成长</span>
-                    <span class="bgcolorred">家庭故事</span>
+
+                    <span  v-for="(kind,j) of item.kind_names.substring(0,item.kind_names.lastIndexOf(',')).split(',')"
+                    :key="j" class="bgcolorred"> {{kind}} </span>&nbsp;
+                    <!-- <span class="bgcolorred">家庭故事</span> -->
                   </p>
                 </div>
-              </a>
-            </li>
-            <li class="mui-table-view-cell mui-media">
-              <a href="javascript:;">
-                <img class="mui-media-object mui-pull-left" src="../assets/images/yuantiao.jpg">
-                <div class="mui-media-body">
-                  <p>
-                    <b>幸福</b>
-                    <br>
-                    <span class="font12">肖尔布拉克</span>
-                  </p>
-                  <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-                  <p class>
-                    <span class="bgcolorred">女性成长</span>
-                    <span class="bgcolorred">家庭故事</span>
-                  </p>
-                </div>
-              </a>
+             </router-link>
             </li>
           </ul>
         </div>
@@ -167,86 +105,43 @@
       </div>
     </div>
     <br>
+    <!-- 签约新作 -->
     <div class="Signing">
       <div class="signing-title">
         <p>
           <span>签约新作</span>
           <span>
-            更多
+            <router-link to="/Book/历史">更多</router-link>
             <span class="mui-icon mui-icon-arrowright"></span>
           </span>
         </p>
       </div>
       <ul class="mui-table-view">
-        <li class="mui-table-view-cell mui-media">
-          <a href="javascript:;">
-            <img class="mui-media-object mui-pull-left" src="../assets/images/yuantiao.jpg">
+        <li class="mui-table-view-cell mui-media" v-for="(item,i) of booklist" :key="i">
+          <router-link :to="'/ReadBookDetail/'+item.id">
+            <img class="mui-media-object mui-pull-left" :src="item.img_url">
             <div class="mui-media-body">
               <p>
-                <b>幸福</b>
+                <b class="mui-ellipsis">{{item.book_title}}</b>
                 <br>
               </p>
-              <p class="mui-ellipsis">推荐语：能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+              <p class="mui-ellipsis">推荐语：{{item.abstract}}</p>
 
               <p class="three">
-                <span>周思远</span>
+                <span class="three-author mui-ellipsis">{{item.book_author_names.replace(',','')}}</span>
+                &nbsp;
                 <a href="#">
-                  <span class="bgcolorwhite">都市</span>
-                  &nbsp;
-                  <span class="bgcolorwhite">都市男女</span>
+                  <span
+                    v-for="(kind,j) of item.kind_names.substring(0,item.kind_names.lastIndexOf(',')).split(',')"
+                    :key="j"
+                    class="bgcolorwhite"
+                  >{{kind}}</span>
                   &nbsp;
                   <span class="bgcolorange">新作</span>
-
                 </a>
               </p>
             </div>
-          </a>
-        </li>
-        <li class="mui-table-view-cell mui-media">
-          <a href="javascript:;">
-            <img class="mui-media-object mui-pull-left" src="../assets/images/yuantiao.jpg">
-            <div class="mui-media-body">
-              <p>
-                <b>幸福</b>
-                <br>
-              </p>
-              <p class="mui-ellipsis">推荐语：能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-              <p class="three">
-                <span>周思远</span>
-                <a href="#">
-                  <span class="bgcolorwhite">都市</span>
-                  &nbsp;
-                  <span class="bgcolorwhite">都市男女</span>
-                  &nbsp;
-                  <span class="bgcolorange">新作</span>
-
-                </a>
-              </p>
-            </div>
-          </a>
-        </li>
-         <li class="mui-table-view-cell mui-media">
-          <a href="javascript:;">
-            <img class="mui-media-object mui-pull-left" src="../assets/images/yuantiao.jpg">
-            <div class="mui-media-body">
-              <p>
-                <b>幸福</b>
-                <br>
-              </p>
-              <p class="mui-ellipsis">推荐语：能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-              <p class="three">
-                <span>周思远</span>
-                <a href="#">
-                  <span class="bgcolorwhite">都市</span>
-                  &nbsp;
-                  <span class="bgcolorwhite">都市男女</span>
-                  &nbsp;
-                  <span class="bgcolorange">新作</span>
-
-                </a>
-              </p>
-            </div>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -255,34 +150,79 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      booklist: [
+        {
+          book_title: "",
+          book_author_names: "",
+          img_url: "",
+          abstract: "",
+          kind_names: "",
+          book_id: ""
+        }
+      ],
+      recommend_booklist: [
+        {
+          book_title: "",
+          book_author_names: "",
+          img_url: "",
+          abstract: "",
+          kind_names: "",
+          book_id: ""
+        }
+      ]
+    };
+  },
+  created() {
+    this.getRecommends();
+  },
+  methods: {
+    getbooklist() {
+      var url = `${
+        this.$router.baseurl
+      }/readbookapi/getBykindname?kindname=历史&pageindex=3&pagesize=3`;
+      this.axios.get(url).then(res => {
+        this.booklist = res.data.data;
+      });
+    },
+    getRecommends() {
+      var url = `${
+        this.$router.baseurl
+      }/readbookapi/getBykindname?kindname=历史&pageindex=1&pagesize=2`;
+      this.axios.get(url).then(res => {
+        this.recommend_booklist = res.data.data;
+      });
+    }
   },
   mounted() {
+   
     var gallery = mui(".mui-slider");
     gallery.slider({
       interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
     });
+     this.getbooklist();
+    
   }
 };
 </script>
 
 <style scoped>
-
 .component-recommand {
   height: auto;
 }
-.component-recommand .mui-table-view{
-    background: #F7FBFA;
+.component-recommand .mui-table-view {
+  background: #f7fbfa;
 }
 .component-recommand .mui-slider {
-  background: #F7FBFA;
+  background: #f7fbfa;
   padding-bottom: 15px;
 }
 .component-recommand .title {
   text-align: left;
   padding: 0px 15px 0px 15px;
-  background: #F7FBFA;
+  background: #f7fbfa;
 }
+
 .component-recommand .title button {
   height: 25px;
   margin: 0px;
@@ -297,10 +237,10 @@ export default {
   padding: 10px;
 }
 .Signing {
-  background: #F7FBFA;
+  background: #f7fbfa;
 }
-.Signing .mui-table-view-cell{
-    height: 115px;
+.Signing .mui-table-view-cell {
+  height: 115px;
 }
 .bgcolorange {
   background: orange;
@@ -326,7 +266,7 @@ export default {
   color: #7cd4be;
   padding: 0px 15px;
   padding-top: 20px;
-  background: #F7FBFA;
+  background: #f7fbfa;
 }
 .signing-title p {
   margin: 0px;
@@ -366,7 +306,7 @@ export default {
   white-space: normal;
   font-size: 12px;
   color: #000;
-  /* text-overflow: ellipsis; */
+  max-height: 42px;
 }
 .component-recommand .bgcolorred {
   background: crimson;

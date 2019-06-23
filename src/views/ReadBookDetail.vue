@@ -2,15 +2,18 @@
   <div class="app-readbookdetail">
     <div class="readbookdetail-content">
       <!--静态图片-->
-      <img id="img1" src="../assets/images/qingxike.jpg">
+      <!-- <img id="img1" src="../assets/images/qingxike.jpg"> -->
+      <img id="img1" :src="bookinfo.img_url">
       <div class="filter"></div>
     </div>
     <div class="book-title">
-      <h4>山青卷白云：女翻译与王维</h4>
+      <!-- <h4>山青卷白云：女翻译与王维</h4> -->
+       <h4>{{bookinfo.book_title}}</h4>
       <div class="book-author">
         <p>
           <img class="img" src="../assets/images/head.jpg" alt>
-          <span>青溪客</span>
+          <!-- <span>青溪客</span> -->
+          <span class="mui-ellipsis">{{bookinfo.book_author_names=bookinfo.book_author_names.length>6?bookinfo.book_author_names.substring(0,6)+'...':bookinfo.book_author_names}}</span>
         </p>
 
         <p>描写盛唐气象不落俗套，以史实为基础的大胆想像颠覆了传统的诗人形象，带你穿越到一个活灵活现的唐朝。</p>
@@ -216,15 +219,15 @@
   color: #fff;
 }
 .app-readbookdetail .mui-bar-tab .mui-tab-item:nth-child(4),
- .app-readbookdetail .mui-bar-tab .mui-tab-item:nth-child(5){
-    display: table-cell;
-    overflow: hidden;
-    width: 5px;
-    height: 50px;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+.app-readbookdetail .mui-bar-tab .mui-tab-item:nth-child(5) {
+  display: table-cell;
+  overflow: hidden;
+  width: 5px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .app-readbookdetail .mui-bar .mui-icon {
@@ -235,27 +238,71 @@
   padding-bottom: 10px;
 }
 .app-readbookdetail .mui-bar {
-    position: fixed;
-    z-index: 10;
-    right: 0;
-    left: 0;
-    height: 44px;
-    padding-right: 0px;
-    padding-left: 0px;
-    border-bottom: 0;
-    background-color: #f7f7f7;
-    box-shadow: none;
-    -webkit-box-shadow:none;
-    /* -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
-    /* box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  left: 0;
+  height: 44px;
+  padding-right: 0px;
+  padding-left: 0px;
+  border-bottom: 0;
+  background-color: #f7f7f7;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  /* -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
+  /* box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 </style>
 <script>
 export default {
   data() {
-    return {};
+    return {
+      bookinfo: {
+        book_id: "",
+        book_title: "",
+        img_url: "",
+        book_author_names: "",
+        fixed_price: 0.0,
+        price: 39.0,
+        cover_url: "",
+        category_text: "",
+        agent: "",
+        promotion_end_time: "",
+        author: "",
+        round_word_count: 0,
+        abstract: "",
+        publisher: "",
+        rating_cnt: ""
+      }
+    };
+  },
+  created(){
+    this.getBookInfo();
+  },
+  methods: {
+    getBookInfo() {
+      var bookid = this.$route.params.bookid;
+      var url = `${this.$router.baseurl}/readbookapi/getById?bid=${bookid}`;
+      this.axios.get(url).then(result => {
+        if (result.data.code == 1) {
+          var obj = result.data.data[0];
+          this.bookinfo.rating_cnt = obj.rating_cnt;
+          this.bookinfo.publisher = obj.publisher;
+          this.bookinfo.round_word_count = obj.round_word_count;
+          this.bookinfo.abstract = obj.abstract;
+          this.bookinfo.book_id = obj.book_id;
+          this.bookinfo.book_title = obj.book_title;
+          this.bookinfo.img_url = obj.img_url;
+          this.bookinfo.book_author_names = obj.book_author_names
+            .toString()
+            .substring(0, obj.book_author_names.length - 1);
+        } else {
+          console.log(result.data);
+        }
+      });
+    }
   }
 };
 </script>
