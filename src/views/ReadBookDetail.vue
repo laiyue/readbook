@@ -76,25 +76,25 @@
   </div>
 </template>
 <style scoped>
-/* .app-readbookdetail{
-  padding-bottom: 58px;
-} */
-.book-author p {
+.app-readbookdetail{
+  font-size: 0.875rem;
+}
+.app-readbookdetail .book-author p {
   font-size: 0.75rem;
   margin-top: 0;
   margin-bottom: 0px;
   color: #8f8f94;
   background-color: #f7fbfa;
 }
-.readbookdetail-content {
+.app-readbookdetail .readbookdetail-content {
   position: relative;
   background-color: #f7fbfa;
 }
-#img1 {
+.app-readbookdetail #img1 {
   width: 100%;
   height: 160px;
 }
-.filter {
+.app-readbookdetail .filter {
   /* margin-left: -20px; */
   width: 100%;
   height: 80px;
@@ -107,16 +107,16 @@
   );
   top: 100px;
 }
-.book-title {
+.app-readbookdetail .book-title {
   position: absolute;
   top: 130px;
   padding-bottom: 58px;
 }
-.book-title .book-author {
+.app-readbookdetail .book-title .book-author {
   background-color: #f7fbfa;
 }
 
-.book-title .book-author p {
+.app-readbookdetail .book-title .book-author p {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,32 +124,32 @@
   border: none;
   background-color: #f7fbfa;
 }
-.book-title .book-author img {
+.app-readbookdetail .book-title .book-author img {
   border-radius: 50%;
   height: 25px;
   width: 25px;
   margin: 5px;
 }
-.stars-active {
+.app-readbookdetail .stars-active {
   background: url("../assets/images/stars.svg") no-repeat;
   height: 13px;
   width: 73px;
   display: inline-block;
 }
-.stars-active-child {
+.app-readbookdetail .stars-active-child {
   background: url("../assets/images/stars.svg") no-repeat;
   height: 13px;
   width: 73px;
   background-position: -14.6px -17px;
   display: inline-block;
 }
-.bgcolor-green {
+.app-readbookdetail .bgcolor-green {
   background: #6da7bc;
   color: #fff;
   border-radius: 20px;
   padding: 2px 8px;
 }
-.title-icons {
+.app-readbookdetail .title-icons {
   font-size: 0.75rem;
   margin-top: 0;
   margin-bottom: 0px;
@@ -157,36 +157,36 @@
   background-color: #f7fbfa;
   line-height: 1rem;
 }
-.title-icons span {
+.app-readbookdetail .title-icons span {
   margin: 5px;
 }
-.title-icons .mui-icon {
+.app-readbookdetail .title-icons .mui-icon {
   font-size: 1.2rem;
 }
-.book-title .book-author .title-footer {
+.app-readbookdetail .book-title .book-author .title-footer {
   display: flex;
   justify-content: space-between;
 }
 /* .book-context {
   padding: 10px;
 } */
-.book-context p {
+.app-readbookdetail .book-context p {
   font-size: 0.75rem;
   text-align: left;
   padding: 10px;
 }
-.book-context h4 {
+.app-readbookdetail .book-context h4 {
   text-align: left;
   padding: 15px 0px;
   background-color: #ebf0f3;
   padding: 10px;
 }
-.book-context .mui-table-view .mui-table-view-cell {
+.app-readbookdetail .book-context .mui-table-view .mui-table-view-cell {
   text-align: left;
   background-color: #f5f9f8;
   font-size: 0.875rem;
 }
-.book-context .mui-table-view-cell:after {
+.app-readbookdetail .book-context .mui-table-view-cell:after {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -197,24 +197,24 @@
   transform: scaleY(0.5);
   background-color: #c8c7cc;
 }
-.book-context .lastest {
+.app-readbookdetail .book-context .lastest {
   font-size: 0.875rem;
   height: 30px;
   padding: 10px;
   color: #000;
 }
 
-.bgcolor-orange {
+.app-readbookdetail .bgcolor-orange {
   background: orange;
   color: #fff;
   padding: 2px 3px;
   font-size: 0.75rem;
 }
-.bgcolor-6 {
+.app-readbookdetail .bgcolor-6 {
   background-color: #7cd4be;
   color: #fff;
 }
-.bgcolor-7 {
+.app-readbookdetail .bgcolor-7 {
   background-color: #5cc9ac;
   color: #fff;
 }
@@ -249,8 +249,6 @@
   background-color: #f7f7f7;
   box-shadow: none;
   -webkit-box-shadow: none;
-  /* -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
-  /* box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }

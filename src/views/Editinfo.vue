@@ -28,7 +28,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .app-editinfo .mui-bar .mui-title {
   text-align: left;
   left: 10px;

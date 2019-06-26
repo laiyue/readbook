@@ -258,7 +258,7 @@
     <bottom></bottom>
   </div>
 </template>
-<style>
+<style scoped>
 .app-shop {
   background-color: #f7fbfa;
   padding-bottom: 50px;
@@ -541,6 +541,7 @@
   height: 40px;
   width: 33.3333%;
   color: #68aab6;
+  font-size: 0.875rem;
 }
 .nav-table .mui-table tr td:nth-child(3) {
   border-right: none;

@@ -27,7 +27,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .app-Serialization-list {
   background-color: #f7fbfa;
   padding-top: 40px;
@@ -170,7 +170,6 @@ export default {
         this.pageindex
       }&pagesize=7`;
       this.axios.get(url).then(res => {
-        console.log(res.data.data);
         if (this.list.length > 1 && this.pageindex > 1) {
           this.list = this.list.concat(res.data.data);
         } else {

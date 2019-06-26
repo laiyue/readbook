@@ -14,9 +14,13 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .component-search .mui-search {
   background-color: #F7FBFA;
+}
+.component-search a{
+  text-decoration: none;
+  color: #000;
 }
 .component-search .mui-input-row.mui-search {
   display: flex;

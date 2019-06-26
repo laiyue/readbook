@@ -43,11 +43,6 @@ a {
 }
 </style>
 <script>
-import navBar from "./components/NavBar.vue";
-
-// import homeView from "./views/Home.vue";
-// import personalCenter from "./views/PersonalCenter.vue";
-// import shopView from "./views/Shop.vue";
 export default {
   data() {
     return {
@@ -71,9 +66,6 @@ export default {
       interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
     });
      
-  },
-  components: {
-    navBar
   }
 };
 </script>

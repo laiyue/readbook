@@ -9,7 +9,7 @@
           <ul class="mui-table-view">
             <li class="mui-table-view-cell mui-media" v-for="(item,i) of recommend_booklist" :key="i" >
              <router-link :to="'/ReadBookDetail/'+item.id">
-                <img class="mui-media-object mui-pull-left" :src="item.img_url">
+                <img class="mui-media-object mui-pull-left" v-lazy="item.img_url" :src="item.img_url">
                 <div class="mui-media-body">
                   <p>
                     <b class="mui-ellipsis">{{item.book_title}}</b>
@@ -32,7 +32,7 @@
           <ul class="mui-table-view">
              <li class="mui-table-view-cell mui-media" v-for="(item,i) of recommend_booklist" :key="i" >
              <router-link :to="'/ReadBookDetail/'+item.id">
-                <img class="mui-media-object mui-pull-left" :src="item.img_url">
+                <img class="mui-media-object mui-pull-left" v-lazy="item.img_url" :src="item.img_url">
                 <div class="mui-media-body">
                   <p>
                     <b class="mui-ellipsis" >{{item.book_title}}</b>
@@ -55,7 +55,7 @@
           <ul class="mui-table-view">
              <li class="mui-table-view-cell mui-media" v-for="(item,i) of recommend_booklist" :key="i" >
               <router-link :to="'/ReadBookDetail/'+item.id">
-                <img class="mui-media-object mui-pull-left" :src="item.img_url">
+                <img class="mui-media-object mui-pull-left" v-lazy="item.img_url" :src="item.img_url">
                 <div class="mui-media-body">
                   <p>
                     <b class="mui-ellipsis" >{{item.book_title}}</b>
@@ -79,7 +79,7 @@
           <ul class="mui-table-view">
              <li class="mui-table-view-cell mui-media" v-for="(item,i) of recommend_booklist" :key="i" >
              <router-link :to="'/ReadBookDetail/'+item.id">
-                <img class="mui-media-object mui-pull-left" :src="item.img_url">
+                <img class="mui-media-object mui-pull-left" v-lazy="item.img_url" :src="item.img_url">
                 <div class="mui-media-body">
                   <p>
                     <b class="mui-ellipsis" >{{item.book_title}}</b>
@@ -119,7 +119,7 @@
       <ul class="mui-table-view">
         <li class="mui-table-view-cell mui-media" v-for="(item,i) of booklist" :key="i">
           <router-link :to="'/ReadBookDetail/'+item.id">
-            <img class="mui-media-object mui-pull-left" :src="item.img_url">
+            <img class="mui-media-object mui-pull-left" v-lazy="item.img_url" :src="item.img_url">
             <div class="mui-media-body">
               <p>
                 <b class="mui-ellipsis">{{item.book_title}}</b>

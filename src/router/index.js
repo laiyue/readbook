@@ -13,6 +13,7 @@ import tabLeft from '@/components/tabLeft'
 import topic from '@/views/topic'
 import ReadBookDetail from '@/views/ReadBookDetail'
 import Recommand from '@/components/recommand'
+import ShoppingCart from '@/views/ShoppingCart'
 
 Vue.use(Router)
 
@@ -48,6 +49,7 @@ export default new Router({
         { path: "/TabLeft", name: "TabLeft", component: tabLeft },
         { path: "/topic", name: "topic", component: topic },
         { path: '/ReadBookDetail/:bookid', name: 'ReadBookDetail', component: ReadBookDetail },
-        { path: '/Recommand', name: "Recommand", component: Recommand }
+        { path: '/Recommand', name: "Recommand", component: Recommand },
+        { path: "/ShoppingCart", name: "ShoppingCart", component: ShoppingCart }
     ]
 })

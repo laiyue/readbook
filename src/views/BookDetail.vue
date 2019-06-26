@@ -3,7 +3,7 @@
     <!-- 顶部导航 -->
     <div class="mui-input-row mui-search">
       <div class="search-title">
-        <span class="mui-icon mui-icon-arrowthinleft" @click="goback"></span>电子书
+        <span class="mui-icon mui-action-back mui-icon-arrowthinleft" @click="goback"></span>电子书
       </div>
       <div class="search-right">
         <span class="mui-icon mui-icon-extra mui-icon-extra-share"></span>
@@ -66,7 +66,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .app-book-detail .mui-table-view {
   margin: 0;
   padding: 0;

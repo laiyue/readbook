@@ -115,7 +115,7 @@
     <bottom></bottom>
   </div>
 </template>
-<style>
+<style scoped>
 .app-personal-center{
   font-size: 14px;
 }

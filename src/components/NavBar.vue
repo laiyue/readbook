@@ -16,7 +16,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 /* .app-navbar{
   padding: 0 0.5rem;
 } */

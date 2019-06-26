@@ -6,8 +6,8 @@
         <span class="mui-tab-label">原创</span>
       </a>
       <a class="mui-tab-item" @click="gotoPage"  >
-        <span data-url="ReakDetail" class="mui-icon mui-icon-extra mui-icon-extra-share"></span>
-        <span class="mui-tab-label">动态</span>
+        <span data-url="ShoppingCart" class="mui-icon mui-icon-extra mui-icon-extra-cart"></span>
+        <span class="mui-tab-label">购物车</span>
       </a>
       <a class="mui-tab-item" @click="gotoPage"  href="javascript:;">
         <span class="mui-icon mui-icon-home" data-url="shop"></span>
@@ -18,13 +18,13 @@
         <span class="mui-tab-label">我的</span>
       </a>
       <a href="javascript:;" @click="gotoPage"  class="mui-tab-item">
-        <span data-url="ReadBookDetail" class="mui-icon mui-icon-gear"></span>
+        <span data-url="ShoppingCart" class="mui-icon mui-icon-gear"></span>
         <span class="mui-tab-label">本地</span>
       </a>
     </nav>
   </div>
 </template>
-<style>
+<style scoped>
 #nav {
   padding: 30px;
 }

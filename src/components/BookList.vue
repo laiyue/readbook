@@ -37,14 +37,14 @@
         </a>
       </li>
     </ul>
-    <!-- <p>
-      <span @click="loadMore" :style="display" ref="loadmore">没有更多了</span>
-    </p>-->
   </div>
 </template>
 <style>
+.app-book-list a {
+  text-decoration: none;
+  color: #000;
+}
 .app-book-list {
-  /* margin: 10px 5px 50px 5px !important; */
   border: none;
   background-color: #fff;
   padding-top: 50px;
@@ -97,7 +97,7 @@
   box-shadow: none;
   background-color: #fff;
 }
- .app-book-list .mui-bar {
+.app-book-list .mui-bar {
   position: fixed;
   z-index: 10;
   right: 0;
@@ -116,9 +116,12 @@
   background-color: #fff;
 }
 
-.app-book-list .mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
-    border-bottom: 0;
-    position: relative;
+.app-book-list
+  .mui-slider
+  .mui-segmented-control.mui-segmented-control-inverted
+  .mui-control-item.mui-active {
+  border-bottom: 0;
+  position: relative;
 }
 .app-book-list
   .mui-segmented-control.mui-scroll-wrapper
