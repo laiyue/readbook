@@ -12,7 +12,7 @@
 
 功能列表：注册登录，登录注销，更换头像，列表加载更多，vuex实现购物车，搜索查询
 
-![image](https://github.com/laiyue/readbook/blob/master/primg/login.jpg) ![image](https://github.com/laiyue/readbook/blob/master/primg/home.jpg) 
+![image](https://github.com/laiyue/readbook/blob/master/primg/login.jpg) ![image](https://github.com/laiyue/readbook/blob/master/primg/home.jpg)![image](https://github.com/laiyue/readbook/blob/master/primg/readdetail.jpg)![image](https://github.com/laiyue/readbook/blob/master/primg/recmanend.jpg)![image](https://github.com/laiyue/readbook/blob/master/primg/search.jpg)![image](https://github.com/laiyue/readbook/blob/master/primg/shop.jpg)![image](https://github.com/laiyue/readbook/blob/master/primg/shopdetail.jpg)![image](https://github.com/laiyue/readbook/blob/master/primg/personcenter.jpg)![image](https://github.com/laiyue/readbook/blob/master/primg/edit.jpg)![image](https://github.com/laiyue/readbook/blob/master/primg/cart.jpg)
 
 
 
