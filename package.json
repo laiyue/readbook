@@ -12,7 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "gh-pages": "^2.0.1",
     "mint-ui": "^2.2.13",
     "mui": "0.0.1",
